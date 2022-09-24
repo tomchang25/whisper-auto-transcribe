@@ -19,7 +19,7 @@
   <p align="center">
     The most efficient auto transcribe solution
     <br />
-    <a href="https://github.com/tomchang25/whisper-auto-transcribe">View Demo</a>
+    <a href="https://github.com/tomchang25/whisper-auto-transcribe#Demo">View Demo</a>
     ·
     <a href="https://github.com/tomchang25/whisper-auto-transcribe/issues">Report Bug</a>
     ·
