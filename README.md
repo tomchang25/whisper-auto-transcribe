@@ -49,7 +49,9 @@ If you don't want to read an academic paper, this tool can be summed up in one s
 <!-- GETTING STARTED -->
 ## Installation
 
-1. Clone the repo
+1. Install [Python 3](https://www.python.org/downloads/)
+
+2. Clone the repo
    ```sh
    git clone https://github.com/tomchang25/whisper-auto-transcribe.git
    cd whisper-auto-transcribe
