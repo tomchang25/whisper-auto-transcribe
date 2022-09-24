@@ -2,7 +2,6 @@
 
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![Release][release-shield]][release-url]
 [![MIT License][license-shield]][license-url]
 
 
