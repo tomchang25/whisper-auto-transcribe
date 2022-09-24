@@ -40,7 +40,7 @@ For more details, you can check [this](https://cdn.openai.com/papers/whisper.pdf
 If you don't want to read an academic paper, this tool can be summed up in one sentence: 
 
    ```sh
-   you can get a subtitle within 1/3 of the length of the video, with more accuracy than most commercial software.
+   You can get a subtitle within 1/3 of the length of the video, with more accuracy than most commercial software.
    FOR FREE!
    ```
 
@@ -51,48 +51,48 @@ If you don't want to read an academic paper, this tool can be summed up in one s
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/tomchang25/ck3-mod-localization-patch.git
+   git clone https://github.com/tomchang25/whisper-auto-transcribe.git
+   cd whisper-auto-transcribe
    ```
-3. Install NPM packages
+3. Install whisper dependency
    ```sh
-   yarn install
+   pip install git+https://github.com/openai/whisper.git 
    ```
-4. Open backend server
+4. Install [ffmpeg](https://ffmpeg.org/)
    ```sh
-   python3 main.py
+   # on Ubuntu or Debian
+  sudo apt update && sudo apt install ffmpeg
+
+  # on MacOS using Homebrew (https://brew.sh/)
+  brew install ffmpeg
+
+  # on Windows using Chocolatey (https://chocolatey.org/)
+  choco install ffmpeg
+
+  # on Windows using Scoop (https://scoop.sh/)
+  scoop install ffmpeg
+
    ```
-5. Open frontend app
-   ```js
-   yarn start
+5. Open application
+   ```sh
+   python gui.py
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
-<!-- USAGE EXAMPLES -->
-<!--  
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
+<!-- ROADMAP -->
+## Demo
 
 <p align="right">(<a href="#top">back to top</a>)</p>
- -->
 
 
 <!-- ROADMAP -->
 ## Roadmap
 
-- [x] Complete Python bash version
-- [x] Complete Python backend server version
-- [x] Complete React website version
-- [ ] Complete electron version
-- [ ] Pack to one exe
-- [ ] Detect duplicate sentence translation
-- [ ] Allow to choose mods to translation
-- [ ] Allow to choose playlist of mods to translation
+- [x] pre-alpha version
+- [x] auto translation
+- [x] preview srt
+- [x] package as exe
 - [ ] Multi-language Support
     - [ ] Traditional Chinese
     - [ ] Japanese
