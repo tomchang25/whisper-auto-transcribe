@@ -36,9 +36,13 @@ The tool is based on [OpenAI-whisper](https://github.com/openai/whisper), the la
 I just made some changes to output the subtitle files, and added a graphical interface.
 
 For more details, you can check [this](https://cdn.openai.com/papers/whisper.pdf).
-If you don't want to read an academic paper, this tool can be summed up in one sentence: you can get a subtitle within 1/3 of the length of the video, with more accuracy than most commercial software.
 
-Most importantly, it is open source and free, which means you don't need to pay any coins for it.
+If you don't want to read an academic paper, this tool can be summed up in one sentence: 
+
+   ```sh
+   you can get a subtitle within 1/3 of the length of the video, with more accuracy than most commercial software.
+   FOR FREE!
+   ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
