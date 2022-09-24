@@ -32,6 +32,7 @@
 ## About The Project
 
 The tool is based on [OpenAI-whisper](https://github.com/openai/whisper), the latest technology developed by OpenAI. 
+
 I just made some changes to output the subtitle files, and added a graphical interface.
 
 For more details, you can check [this](https://cdn.openai.com/papers/whisper.pdf).
