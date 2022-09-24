@@ -30,7 +30,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-The tool is based on [OpenAI-whisper](https://github.com/openai/whisper), the latest technology developed by OpenAI. 
+The tool is based on [OpenAI-whisper](https://github.com/openai/whisper), the latest project developed by OpenAI. 
 
 I just made some changes to output the subtitle files, and added a graphical interface.
 
