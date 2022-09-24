@@ -109,6 +109,13 @@ Click it!
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
+<!-- Q & A -->
+## Q & A
+
+Distributed under the MIT License. See `LICENSE.txt` for more information.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 <!-- LICENSE -->
 ## License
 
