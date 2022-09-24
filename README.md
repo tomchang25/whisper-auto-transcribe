@@ -90,9 +90,9 @@ If you don't want to read an academic paper, this tool can be summed up in one s
 ## Roadmap
 
 - [x] pre-alpha version
-- [x] auto translation
-- [x] preview srt
-- [x] package as exe
+- [ ] auto translation
+- [ ] preview srt
+- [ ] package as exe
 - [ ] Multi-language Support
     - [ ] Traditional Chinese
     - [ ] Japanese
