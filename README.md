@@ -40,8 +40,8 @@ For more details, you can check [this](https://cdn.openai.com/papers/whisper.pdf
 If you don't want to read an academic paper, this tool can be summed up in one sentence: 
 
    ```sh
-   You can get a subtitle within 1/3 of the length of the video, with more accuracy than most commercial software.
-   FOR FREE!
+   AI will auto generate subtitle, with more accuracy than most transcribe commercial software.
+   The most important, it's FREE!
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
