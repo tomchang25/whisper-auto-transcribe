@@ -61,16 +61,16 @@ If you don't want to read an academic paper, this tool can be summed up in one s
 4. Install [ffmpeg](https://ffmpeg.org/)
    ```sh
    # on Ubuntu or Debian
-  sudo apt update && sudo apt install ffmpeg
+   sudo apt update && sudo apt install ffmpeg
 
-  # on MacOS using Homebrew (https://brew.sh/)
-  brew install ffmpeg
+   # on MacOS using Homebrew (https://brew.sh/)
+   brew install ffmpeg
 
-  # on Windows using Chocolatey (https://chocolatey.org/)
-  choco install ffmpeg
+   # on Windows using Chocolatey (https://chocolatey.org/)
+   choco install ffmpeg
 
-  # on Windows using Scoop (https://scoop.sh/)
-  scoop install ffmpeg
+   # on Windows using Scoop (https://scoop.sh/)
+   scoop install ffmpeg
 
    ```
 5. Open application
