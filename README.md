@@ -131,6 +131,10 @@ Click it!
    ```
    Sonix.ai is nearly perfect actually, but hey! you need to pay the bill!
    ```
+4. Your code suck!
+   ```
+   Why dont you release a better version. So I can use your project and spend more time to relax.
+   ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
