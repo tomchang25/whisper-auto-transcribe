@@ -2,7 +2,6 @@
 
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![Release][release-shield]][release-url]
 [![MIT License][license-shield]][license-url]
 
 
@@ -20,7 +19,7 @@
   <p align="center">
     The most efficient auto transcribe solution
     <br />
-    <a href="https://github.com/tomchang25/whisper-auto-transcribe">View Demo</a>
+    <a href="https://github.com/tomchang25/whisper-auto-transcribe#Demo">View Demo</a>
     ·
     <a href="https://github.com/tomchang25/whisper-auto-transcribe/issues">Report Bug</a>
     ·
@@ -49,7 +48,9 @@ If you don't want to read an academic paper, this tool can be summed up in one s
 <!-- GETTING STARTED -->
 ## Installation
 
-1. Clone the repo
+1. Install [Python 3](https://www.python.org/downloads/)
+
+2. Clone the repo
    ```sh
    git clone https://github.com/tomchang25/whisper-auto-transcribe.git
    cd whisper-auto-transcribe
