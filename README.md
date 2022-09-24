@@ -112,7 +112,25 @@ Click it!
 <!-- Q & A -->
 ## Q & A
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+1. Is it better then youtube automatic subtitles?
+   ```
+   Do you really need to ask? Youtube can even fuck up English transcribe.
+   ```
+   
+2. Is it better then Vosk(Subtitle Edit)?
+   ```
+   Definitely.
+   ```
+
+3. Is it better then Trint?
+   ```
+   Trint is terrible at non-English transcribe, and that's whisper advantage.
+   ```
+
+3. Is it better then Sonix.ai?
+   ```
+   Sonix.ai is nearly perfect actually, but hey! you need to pay the bill!
+   ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
