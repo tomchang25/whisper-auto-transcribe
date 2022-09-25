@@ -99,7 +99,7 @@ If you don't want to read an academic paper, this tool can be summed up in one s
     <img src="images/logo.png" alt="Logo" width="800" height="800">
   </a>
 
-  *Japanese subtitle
+  #Japanese subtitle
    ```sh
    0
    0:00:00,0 --> 0:00:09,580
