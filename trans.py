@@ -13,7 +13,7 @@ def transcribe_start(model_type, file_path, language_input, task="transcribe"):
 
     print(model.device)
 
-    result = model.transcribe(file_path, language=language, task=task)
+    result = model.transcribe(file_path, language=language, task=task, verbose=False)
     # print(result["text"])
     path = "{}.srt".format(strftime("%Y%m%d-%H%M%S", gmtime()))
     # print(__file__)
@@ -45,5 +45,5 @@ def transcribe_start(model_type, file_path, language_input, task="transcribe"):
 
 
 # "transcribe","translate"
-for i in range(10):
+for i in range(1):
     transcribe_start("large", "mp4/1min.mp4", "ja", "translate")
