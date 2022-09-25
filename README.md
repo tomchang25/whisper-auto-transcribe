@@ -11,6 +11,10 @@
 <br />
 <div align="center">
   <h3 align="center">Whisper Auto Transcribe</h3>
+  
+  <a href="https://github.com/tomchang25/whisper-auto-transcribe">
+    <img src="images/Logo.png" alt="Logo" width="800" height="450">
+  </a>
 
   <p align="center">
     The most efficient auto transcribe solution
@@ -22,9 +26,8 @@
     <a href="https://github.com/tomchang25/whisper-auto-transcribe/issues">Request Feature</a>
   </p>
   
-  <a href="https://github.com/tomchang25/whisper-auto-transcribe">
-    <img src="images/Demo1.png" alt="Logo" width="800" height="450">
-  </a>
+  <img src="images/Demo1.png" alt="Logo" width="800" height="450">
+
 
 
 </div>
