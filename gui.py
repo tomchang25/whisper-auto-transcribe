@@ -208,8 +208,8 @@ language_key_list = [
     "su",
 ]
 
-speed_list = ["large", "medium", "small", "base", "tiny"]
-
+# speed_list = ["large", "medium", "small", "base", "tiny"]
+precision_list = ["tiny", "base", "small", "medium", "large"]
 # %%
 from multiprocessing.sharedctypes import Value
 import whisper
@@ -270,7 +270,7 @@ def change_type(file_type):
         return [gr.update(visible=False), gr.update(visible=True)]
 
 
-def transcribe_submit(language, speed, file_type, video_input, audio_input):
+def transcribe_submit(language, precision, file_type, video_input, audio_input):
     output_type = [None, None]
     if file_type == "Video":
         # output_type = [
@@ -285,10 +285,10 @@ def transcribe_submit(language, speed, file_type, video_input, audio_input):
         # ]
         input_file = audio_input
 
-    # print(",".join([language_key_list[language], speed_list[speed], file_type]))
+    # print(",".join([language_key_list[language], precision_list[precision], file_type]))
 
     srt_path = transcribe_start(
-        speed_list[speed - 1], input_file, language_key_list[language]
+        precision_list[precision - 1], input_file, language_key_list[language]
     )
 
     return output_type + [
@@ -307,12 +307,13 @@ with gr.Blocks() as demo:
             interactive=True,
         )
 
-        speed = gr.Slider(
+        precision = gr.Slider(
             minimum=1,
             maximum=5,
             step=1,
+            value=3,
             interactive=True,
-            label="Speed",
+            label="Precision",
         )
 
         file_type = gr.Radio(
@@ -349,7 +350,7 @@ with gr.Blocks() as demo:
 
     submit_btn.click(
         fn=transcribe_submit,
-        inputs=[language, speed, file_type, video_input, audio_input],
+        inputs=[language, precision, file_type, video_input, audio_input],
         outputs=[video_output, audio_output, subtitle_output, srt_output],
     )
 
