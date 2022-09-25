@@ -41,7 +41,7 @@ For more details, you can check [this](https://cdn.openai.com/papers/whisper.pdf
 Features:
 
 - Auto generates subtitle from video/audio
-- selectable precision to to achieve a balance between speed and accuracy
+- Selectable precision to to achieve a balance between speed and accuracy
 - Easy to use
 - More features are coming soon
 - Auto translate to English (WIP)
