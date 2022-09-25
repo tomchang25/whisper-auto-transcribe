@@ -35,7 +35,16 @@
 ## About The Project
 
 The tool is based on [OpenAI-whisper](https://github.com/openai/whisper), the latest project developed by OpenAI. 
+
 For more details, you can check [this](https://cdn.openai.com/papers/whisper.pdf).
+
+Features:
+
+- Auto generates subtitle from video/audio
+- selectable precision to to achieve a balance between speed and accuracy
+- Easy to use
+- More features are coming soon
+- Auto translate to English (WIP)
 
 <!--
 I made some changes to output the subtitle files, and added a graphical interface.
