@@ -231,13 +231,6 @@ If you don't want to read an academic paper, this tool can be summed up in one s
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 
 <!-- CONTACT -->
 ## Contact
@@ -248,6 +241,14 @@ Project Link: [https://github.com/tomchang25/whisper-auto-transcribe](https://gi
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+
+<!-- LICENSE -->
+## License
+
+The code and the model weights of Whisper are released under the MIT License. 
+Distributed under the MIT License. See `LICENSE.txt` for more information.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 <!-- ACKNOWLEDGMENTS -->
