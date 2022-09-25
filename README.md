@@ -35,10 +35,10 @@
 ## About The Project
 
 The tool is based on [OpenAI-whisper](https://github.com/openai/whisper), the latest project developed by OpenAI. 
-
-I just made some changes to output the subtitle files, and added a graphical interface.
-
 For more details, you can check [this](https://cdn.openai.com/papers/whisper.pdf).
+
+<!--
+I made some changes to output the subtitle files, and added a graphical interface.
 
 If you don't want to read an academic paper, this tool can be summed up in one sentence: 
 
@@ -46,6 +46,7 @@ If you don't want to read an academic paper, this tool can be summed up in one s
    AI will auto generate subtitle, with more accuracy than most transcribe commercial software.
    The most important, it's FREE!
    ```
+-->
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
