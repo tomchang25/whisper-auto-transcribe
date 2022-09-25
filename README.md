@@ -43,8 +43,8 @@ Features:
 - Auto generates subtitle from video/audio
 - Selectable precision to to achieve a balance between speed and accuracy
 - Easy to use
-- More features are coming soon
 - Auto translate to English (WIP)
+- More features are coming soon
 
 <!--
 I made some changes to output the subtitle files, and added a graphical interface.
