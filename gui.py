@@ -218,7 +218,7 @@ import torch
 from time import gmtime, strftime
 
 
-def transcribe_start(model_type, file_path, language_input):
+def transcribe_start(model_type, file_path, language_input, task="transcribe"):
     # print(model_type, file_path, language_input)
     language = None if language_input == "auto" else language_input
 
@@ -226,7 +226,7 @@ def transcribe_start(model_type, file_path, language_input):
 
     print(model.device)
 
-    result = model.transcribe(file_path, language=language)
+    result = model.transcribe(file_path, language=language, task=task)
     # print(result["text"])
     path = "{}.srt".format(strftime("%Y%m%d-%H%M%S", gmtime()))
     # print(__file__)
@@ -246,8 +246,12 @@ def transcribe_start(model_type, file_path, language_input):
             text = seg["text"]
             f.write(f"{id}\n{start} --> {end}\n{text}\n\n")
 
-    del result
-    del model
+    # del result
+    # model.to("cpu")
+
+    del model.encoder
+    del model.decoder
+
     torch.cuda.empty_cache()
 
     return path

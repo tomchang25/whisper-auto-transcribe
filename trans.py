@@ -5,7 +5,7 @@ import torch
 from time import gmtime, strftime
 
 
-def transcribe_start(model_type, file_path, language_input, task):
+def transcribe_start(model_type, file_path, language_input, task="transcribe"):
     # print(model_type, file_path, language_input)
     language = None if language_input == "auto" else language_input
 
