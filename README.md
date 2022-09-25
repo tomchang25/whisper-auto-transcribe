@@ -97,7 +97,7 @@ If you don't want to read an academic paper, this tool can be summed up in one s
   <h3 align="center">Auto generate subtitle from video and translate to English</h3>
 
   <a href="https://www.youtube.com/watch?v=6w-AvMZT3TY">
-    <img src="images/logo.png" alt="Logo" width="400" height="400">
+    <img src="images/deom-jp-img.png" alt="Logo" width="400" height="400">
   </a>
 </div>
 
