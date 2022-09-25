@@ -93,13 +93,15 @@ If you don't want to read an academic paper, this tool can be summed up in one s
 
 <!-- Demo -->
 ## Demo
+<div align="center">
+  <h3 align="center">Auto generate subtitle from video and translate to English</h3>
 
-  
   <a href="https://www.youtube.com/watch?v=6w-AvMZT3TY">
-    <img src="images/logo.png" alt="Logo" width="800" height="800">
+    <img src="images/logo.png" alt="Logo" width="400" height="400">
   </a>
+</div>
 
-  #Japanese subtitle
+  ### Japanese
    ```sh
    0
    0:00:00,0 --> 0:00:09,580
@@ -136,6 +138,43 @@ If you don't want to read an academic paper, this tool can be summed up in one s
 
    ```
 
+  ### English
+   ```sh
+   0
+   0:00:00,0 --> 0:00:09,580
+   人気を集めているのは鹿児島県 枕崎市の海沿いに立つ高さ20メートルを超える
+
+   1
+   0:00:09,580 --> 0:00:16,320
+   八市の仲間です 枕崎市はかつては台風銀座と言われるほど
+
+   2
+   0:00:16,320 --> 0:00:24,120
+   台風の接近が多くこの場所は何度も台風中継に使われてきました
+
+   3
+   0:00:24,120 --> 0:00:27,120
+   ん
+
+   4
+   0:00:27,480 --> 0:00:36,600
+   台風14号が接近した日曜日 4本ある木のうちの1本が sns 上で
+
+   5
+   0:00:36,600 --> 0:00:45,200
+   ヤッシーと名付けられ強風に耐える姿に応援コメントが続出しました よし頑張れ
+
+   6
+   0:00:45,200 --> 0:00:54,320
+   や c 早く逃げろ イザとなったら根っこを外して逃げろ
+
+   7
+   0:00:54,320 --> 0:01:16,760
+   欲しいという声もあるということです
+
+
+   ```
+   
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
