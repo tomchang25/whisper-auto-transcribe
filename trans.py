@@ -45,5 +45,4 @@ def transcribe_start(model_type, file_path, language_input, task="transcribe"):
 
 
 # "transcribe","translate"
-for i in range(1):
-    transcribe_start("large", "mp4/1min.mp4", "ja", "translate")
+transcribe_start("large", "mp4/jp2.mp4", "ja", "translate")
