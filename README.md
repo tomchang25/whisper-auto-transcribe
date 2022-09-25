@@ -49,48 +49,6 @@ If you don't want to read an academic paper, this tool can be summed up in one s
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- GETTING STARTED -->
-## Installation
-
-1. Install [Python 3](https://www.python.org/downloads/)
-
-2. Clone the repo
-   ```sh
-   git clone https://github.com/tomchang25/whisper-auto-transcribe.git
-   cd whisper-auto-transcribe
-   ```
-3. Install whisper dependency
-   ```sh
-   pip install git+https://github.com/openai/whisper.git 
-   ```
-4. Install [ffmpeg](https://ffmpeg.org/)
-   ```sh
-   # on Ubuntu or Debian
-   sudo apt update && sudo apt install ffmpeg
-
-   # on MacOS using Homebrew (https://brew.sh/)
-   brew install ffmpeg
-
-   # on Windows using Chocolatey (https://chocolatey.org/)
-   choco install ffmpeg
-
-   # on Windows using Scoop (https://scoop.sh/)
-   scoop install ffmpeg
-
-   ```
-5. Open application
-   ```sh
-   python gui.py
-   ```
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-<!-- How to use -->
-## How to use
-  <img src="images/Demo1.png" alt="How to use" width="800" height="450">
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 <!-- Demo -->
 ## Demo
 <div align="center">
@@ -178,6 +136,48 @@ If you don't want to read an academic paper, this tool can be summed up in one s
    
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+
+<!-- GETTING STARTED -->
+## Installation
+
+1. Install [Python 3](https://www.python.org/downloads/)
+
+2. Clone the repo
+   ```sh
+   git clone https://github.com/tomchang25/whisper-auto-transcribe.git
+   cd whisper-auto-transcribe
+   ```
+3. Install whisper dependency
+   ```sh
+   pip install git+https://github.com/openai/whisper.git 
+   ```
+4. Install [ffmpeg](https://ffmpeg.org/)
+   ```sh
+   # on Ubuntu or Debian
+   sudo apt update && sudo apt install ffmpeg
+
+   # on MacOS using Homebrew (https://brew.sh/)
+   brew install ffmpeg
+
+   # on Windows using Chocolatey (https://chocolatey.org/)
+   choco install ffmpeg
+
+   # on Windows using Scoop (https://scoop.sh/)
+   scoop install ffmpeg
+
+   ```
+5. Open application
+   ```sh
+   python gui.py
+   ```
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- How to use -->
+## How to use
+  <img src="images/Demo1.png" alt="How to use" width="800" height="450">
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- ROADMAP -->
 ## Roadmap
