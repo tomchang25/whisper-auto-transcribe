@@ -43,6 +43,7 @@ Features:
 - Auto generates subtitle from video/audio
 - Selectable precision to to achieve a balance between speed and accuracy
 - Easy to use
+- Transcribe accuracy about 90%
 - Auto translate to English (WIP)
 - More features are coming soon
 
