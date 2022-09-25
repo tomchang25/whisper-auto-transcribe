@@ -60,7 +60,7 @@ If you don't want to read an academic paper, this tool can be summed up in one s
 </div>
 
   ### Japanese
-   ```sh
+   ```
    0
    0:00:00,0 --> 0:00:09,580
    人気を集めているのは鹿児島県 枕崎市の海沿いに立つ高さ20メートルを超える
@@ -97,7 +97,7 @@ If you don't want to read an academic paper, this tool can be summed up in one s
    ```
 
   ### English
-   ```sh
+   ```
    0
    0:00:00,0 --> 0:00:10,0
     The most popular is the Yashino Nakama, which stands on the shore of the Makurazaki City in Kagoshima Prefecture.
