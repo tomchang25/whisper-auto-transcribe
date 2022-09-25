@@ -203,6 +203,8 @@ If you don't want to read an academic paper, this tool can be summed up in one s
 
 
 <!-- Q & A -->
+<!--
+
 ## Q & A
 
 1. Is it better then youtube automatic subtitles?
@@ -230,7 +232,7 @@ If you don't want to read an academic paper, this tool can be summed up in one s
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
+-->
 
 <!-- CONTACT -->
 ## Contact
