@@ -13,7 +13,7 @@
   <h3 align="center">Whisper Auto Transcribe</h3>
   
   <a href="https://github.com/tomchang25/whisper-auto-transcribe">
-    <img src="images/Logo.png" alt="Logo" width="800" height="450">
+    <img src="images/logo.png" alt="Logo" width="400" height="400">
   </a>
 
   <p align="center">
