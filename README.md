@@ -94,8 +94,10 @@ Click it!
 ## Roadmap
 
 - [x] pre-alpha version
+- [x] english translation
+- [ ] CPU / GPU option
 - [ ] preview srt
-- [ ] auto translation
+- [ ] English to other language translation
 - [ ] package as exe
 - [ ] Multi-language Support
     - [ ] Traditional Chinese
