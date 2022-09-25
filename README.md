@@ -141,37 +141,38 @@ If you don't want to read an academic paper, this tool can be summed up in one s
   ### English
    ```sh
    0
-   0:00:00,0 --> 0:00:09,580
-   人気を集めているのは鹿児島県 枕崎市の海沿いに立つ高さ20メートルを超える
-
+   0:00:00,0 --> 0:00:10,0
+    The most popular is the Yashino Nakama, which stands on the shore of the Makurazaki City in Kagoshima Prefecture.
+   
    1
-   0:00:09,580 --> 0:00:16,320
-   八市の仲間です 枕崎市はかつては台風銀座と言われるほど
-
+   0:00:11,0 --> 0:00:22,0
+    Makurazaki City used to be called the Typhoon Ginza, and the typhoon was approaching it frequently.
+   
    2
-   0:00:16,320 --> 0:00:24,120
-   台風の接近が多くこの場所は何度も台風中継に使われてきました
-
+   0:00:22,0 --> 0:00:27,0
+    On Sunday, the Typhoon Ginza approached the Makurazaki City.
+   
    3
-   0:00:24,120 --> 0:00:27,120
-   ん
-
+   0:00:28,0 --> 0:00:41,0
+    One of the four trees was named Yasshi on SNS, and there were many supportive comments.
+   
    4
-   0:00:27,480 --> 0:00:36,600
-   台風14号が接近した日曜日 4本ある木のうちの1本が sns 上で
-
+   0:00:42,0 --> 0:00:44,0
+    Yasshi, do your best!
+   
    5
-   0:00:36,600 --> 0:00:45,200
-   ヤッシーと名付けられ強風に耐える姿に応援コメントが続出しました よし頑張れ
-
+   0:00:45,0 --> 0:00:47,0
+    Yasshi, run away quickly!
+   
    6
-   0:00:45,200 --> 0:00:54,320
-   や c 早く逃げろ イザとなったら根っこを外して逃げろ
-
+   0:00:47,0 --> 0:00:51,0
+    Run away? If you have to, take off your roots and run away?
+   
    7
-   0:00:54,320 --> 0:01:16,760
-   欲しいという声もあるということです
-
+   0:00:51,0 --> 0:01:17,0
+    There are also voices asking to sell Yasshi goods.
+   
+   
 
    ```
    
