@@ -11,7 +11,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/tomchang25/whisper-auto-transcribe">
-    <img src="images/Demo1.jpg" alt="Logo" width="1920" height="1080">
+    <img src="images/Demo1.jpg" alt="Logo" width="1360" height="750">
   </a>
 
   <h3 align="center">Whisper Auto Transcribe</h3>
