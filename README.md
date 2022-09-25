@@ -17,7 +17,7 @@
   </a>
 
   <p align="center">
-    The most efficient auto transcribe solution
+    The most efficient subtitle solution.
     <br />
     <a href="https://github.com/tomchang25/whisper-auto-transcribe#Demo">View Demo</a>
     ·
