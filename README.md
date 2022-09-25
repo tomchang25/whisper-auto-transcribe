@@ -59,7 +59,7 @@ If you don't want to read an academic paper, this tool can be summed up in one s
   </a>
 </div>
 
-  ### Japanese
+  ### Japanese [Watch on Youtube](https://youtu.be/kec6Kk8b4G0)
    ```
    0
    0:00:00,0 --> 0:00:09,580
@@ -96,7 +96,7 @@ If you don't want to read an academic paper, this tool can be summed up in one s
 
    ```
 
-  ### English
+  ### English [Watch on Youtube](https://youtu.be/SJ-11ZX1N4w)
    ```
    0
    0:00:00,0 --> 0:00:10,0
