@@ -94,8 +94,8 @@ Click it!
 ## Roadmap
 
 - [x] pre-alpha version
-- [ ] auto translation
 - [ ] preview srt
+- [ ] auto translation
 - [ ] package as exe
 - [ ] Multi-language Support
     - [ ] Traditional Chinese
