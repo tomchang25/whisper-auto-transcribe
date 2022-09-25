@@ -10,10 +10,6 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/tomchang25/whisper-auto-transcribe">
-    <img src="images/Demo1.jpg" alt="Logo" width="1360" height="750">
-  </a>
-
   <h3 align="center">Whisper Auto Transcribe</h3>
 
   <p align="center">
@@ -25,6 +21,12 @@
     ·
     <a href="https://github.com/tomchang25/whisper-auto-transcribe/issues">Request Feature</a>
   </p>
+  
+  <a href="https://github.com/tomchang25/whisper-auto-transcribe">
+    <img src="images/Demo1.jpg" alt="Logo" width="1360" height="750">
+  </a>
+
+
 </div>
 
 <!-- ABOUT THE PROJECT -->
