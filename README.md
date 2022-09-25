@@ -26,7 +26,6 @@
     <a href="https://github.com/tomchang25/whisper-auto-transcribe/issues">Request Feature</a>
   </p>
   
-  <img src="images/Demo1.png" alt="Logo" width="800" height="450">
 
 
 
@@ -86,7 +85,13 @@ If you don't want to read an academic paper, this tool can be summed up in one s
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- ROADMAP -->
+<!-- How to use -->
+## How to use
+  <img src="images/Demo1.png" alt="How to use" width="800" height="450">
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- Demo -->
 ## Demo
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/v8Fc5BYRrFw/0.jpg)](https://www.youtube.com/watch?v=v8Fc5BYRrFw)
