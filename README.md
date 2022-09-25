@@ -94,8 +94,11 @@ If you don't want to read an academic paper, this tool can be summed up in one s
 <!-- Demo -->
 ## Demo
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/v8Fc5BYRrFw/0.jpg)](https://www.youtube.com/watch?v=v8Fc5BYRrFw)
-Click it!
+  
+  <a href="https://www.youtube.com/watch?v=6w-AvMZT3TY">
+    <img src="images/logo.png" alt="Logo" width="800" height="800">
+  </a>
+
 
    ```sh
    0
