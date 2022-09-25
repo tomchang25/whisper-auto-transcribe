@@ -23,7 +23,7 @@
   </p>
   
   <a href="https://github.com/tomchang25/whisper-auto-transcribe">
-    <img src="images/Demo1.png" alt="Logo" width="800" height="360">
+    <img src="images/Demo1.png" alt="Logo" width="800" height="450">
   </a>
 
 
