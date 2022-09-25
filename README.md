@@ -98,6 +98,7 @@ Click it!
 - [x] pre-alpha version
 - [x] english translation
 - [ ] CPU / GPU option
+- [ ] progress bar
 - [ ] preview srt
 - [ ] English to other language translation
 - [ ] package as exe
