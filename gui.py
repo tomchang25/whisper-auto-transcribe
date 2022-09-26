@@ -1,221 +1,11 @@
 # %%
-language_list = [
-    "auto",
-    "english",
-    "chinese",
-    "japanese",
-    "korean",
-    "german",
-    "spanish",
-    "russian",
-    "french",
-    "portuguese",
-    "turkish",
-    "polish",
-    "catalan",
-    "dutch",
-    "arabic",
-    "swedish",
-    "italian",
-    "indonesian",
-    "hindi",
-    "finnish",
-    "vietnamese",
-    "hebrew",
-    "ukrainian",
-    "greek",
-    "malay",
-    "czech",
-    "romanian",
-    "danish",
-    "hungarian",
-    "tamil",
-    "norwegian",
-    "thai",
-    "urdu",
-    "croatian",
-    "bulgarian",
-    "lithuanian",
-    "latin",
-    "maori",
-    "malayalam",
-    "welsh",
-    "slovak",
-    "telugu",
-    "persian",
-    "latvian",
-    "bengali",
-    "serbian",
-    "azerbaijani",
-    "slovenian",
-    "kannada",
-    "estonian",
-    "macedonian",
-    "breton",
-    "basque",
-    "icelandic",
-    "armenian",
-    "nepali",
-    "mongolian",
-    "bosnian",
-    "kazakh",
-    "albanian",
-    "swahili",
-    "galician",
-    "marathi",
-    "punjabi",
-    "sinhala",
-    "khmer",
-    "shona",
-    "yoruba",
-    "somali",
-    "afrikaans",
-    "occitan",
-    "georgian",
-    "belarusian",
-    "tajik",
-    "sindhi",
-    "gujarati",
-    "amharic",
-    "yiddish",
-    "lao",
-    "uzbek",
-    "faroese",
-    "haitian creole",
-    "pashto",
-    "turkmen",
-    "nynorsk",
-    "maltese",
-    "sanskrit",
-    "luxembourgish",
-    "myanmar",
-    "tibetan",
-    "tagalog",
-    "malagasy",
-    "assamese",
-    "tatar",
-    "hawaiian",
-    "lingala",
-    "hausa",
-    "bashkir",
-    "javanese",
-    "sundanese",
-]
-
-language_list = [x.title() for x in language_list]
-language_list
-
-language_key_list = [
-    "auto",
-    "en",
-    "zh",
-    "ja",
-    "ko",
-    "de",
-    "es",
-    "ru",
-    "fr",
-    "pt",
-    "tr",
-    "pl",
-    "ca",
-    "nl",
-    "ar",
-    "sv",
-    "it",
-    "id",
-    "hi",
-    "fi",
-    "vi",
-    "iw",
-    "uk",
-    "el",
-    "ms",
-    "cs",
-    "ro",
-    "da",
-    "hu",
-    "ta",
-    "no",
-    "th",
-    "ur",
-    "hr",
-    "bg",
-    "lt",
-    "la",
-    "mi",
-    "ml",
-    "cy",
-    "sk",
-    "te",
-    "fa",
-    "lv",
-    "bn",
-    "sr",
-    "az",
-    "sl",
-    "kn",
-    "et",
-    "mk",
-    "br",
-    "eu",
-    "is",
-    "hy",
-    "ne",
-    "mn",
-    "bs",
-    "kk",
-    "sq",
-    "sw",
-    "gl",
-    "mr",
-    "pa",
-    "si",
-    "km",
-    "sn",
-    "yo",
-    "so",
-    "af",
-    "oc",
-    "ka",
-    "be",
-    "tg",
-    "sd",
-    "gu",
-    "am",
-    "yi",
-    "lo",
-    "uz",
-    "fo",
-    "ht",
-    "ps",
-    "tk",
-    "nn",
-    "mt",
-    "sa",
-    "lb",
-    "my",
-    "bo",
-    "tl",
-    "mg",
-    "as",
-    "tt",
-    "haw",
-    "ln",
-    "ha",
-    "ba",
-    "jw",
-    "su",
-]
-
-# speed_list = ["large", "medium", "small", "base", "tiny"]
-precision_list = ["tiny", "base", "small", "medium", "large"]
-# %%
-from multiprocessing.sharedctypes import Value
 import whisper
 import datetime
 import torch
 from time import gmtime, strftime
+from language import language_key_list, language_list
+
+precision_list = ["tiny", "base", "small", "medium", "large"]
 
 
 def transcribe_start(model_type, file_path, language_input, task="transcribe"):
@@ -258,9 +48,12 @@ def transcribe_start(model_type, file_path, language_input, task="transcribe"):
 
 
 # %%
-from operator import truediv
-from tkinter.tix import Tree
 import gradio as gr
+
+
+def change_task_type(task_type):
+    print(task_type)
+    return gr.update(value=task_type)
 
 
 def change_type(file_type):
@@ -354,7 +147,7 @@ with gr.Blocks() as demo:
 
         task_type = gr.Radio(
             ["Transcribe", "Translate"],
-            value="Video",
+            value="Transcribe",
             label="Task Type",
             interactive=True,
         )
@@ -374,7 +167,7 @@ with gr.Blocks() as demo:
             audio_output = gr.Audio(label="Demo", interactive=False, visible=False)
             subtitle_output = gr.Text(
                 label="Demo",
-                value="Drag the file and Transcribe!",
+                value="Drag the file and click button!",
                 interactive=False,
                 visible=True,
             )
@@ -384,6 +177,12 @@ with gr.Blocks() as demo:
         fn=change_type,
         inputs=[file_type],
         outputs=[video_input, audio_input],
+    )
+
+    task_type.change(
+        fn=change_task_type,
+        inputs=[task_type],
+        outputs=[submit_btn],
     )
 
     submit_btn.click(
