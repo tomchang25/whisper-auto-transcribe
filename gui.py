@@ -87,14 +87,16 @@ def transcribe_submit(
         # ]
         input_file = audio_input
 
-    print(audio_input)
+    print(precision_list[precision - 1])
+    print(task_type.lower())
+
     # print(",".join([language_key_list[language], precision_list[precision], file_type]))
 
     srt_path = transcribe_start(
         model_type=precision_list[precision - 1],
         file_path=input_file,
         language_input=language_key_list[language],
-        task=task_type,
+        task=task_type.lower(),
     )
 
     return output_type + [
