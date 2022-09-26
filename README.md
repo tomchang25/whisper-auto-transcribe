@@ -65,7 +65,7 @@ If you don't want to read an academic paper, this tool can be summed up in one s
 <div align="center">
   <h3 align="center">Auto generate subtitle from video and translate to English</h3>
   
-  ### [Demo on Youtube](https://www.youtube.com/watch?v=y-Df1gA8TeQ&t=2s)
+  ### [Demo on Youtube](https://www.youtube.com/watch?v=y-Df1gA8TeQ)
   ### [Video source (no subtitle)](https://www.youtube.com/watch?v=6w-AvMZT3TY)
 </div>
 
