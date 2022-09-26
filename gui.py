@@ -285,6 +285,7 @@ def transcribe_submit(language, precision, file_type, video_input, audio_input):
         # ]
         input_file = audio_input
 
+    print(audio_input)
     # print(",".join([language_key_list[language], precision_list[precision], file_type]))
 
     srt_path = transcribe_start(
@@ -327,7 +328,9 @@ with gr.Blocks() as demo:
             video_input = gr.Video(
                 label="Video File", interactive=True, mirror_webcam=False
             )
-            audio_input = gr.Audio(label="Audio File", interactive=True, visible=False)
+            audio_input = gr.Audio(
+                label="Audio File", interactive=True, type="filepath", visible=False
+            )
             submit_btn = gr.Button("Transcribe")
 
     with gr.Row():
