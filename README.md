@@ -64,10 +64,9 @@ If you don't want to read an academic paper, this tool can be summed up in one s
 ## Demo
 <div align="center">
   <h3 align="center">Auto generate subtitle from video and translate to English</h3>
-
-  <a href="https://www.youtube.com/watch?v=6w-AvMZT3TY">
-    <img src="images/deom-jp-img.png" alt="Logo" width="400" height="300">
-  </a>
+  
+  ### [Demo on Youtube](https://www.youtube.com/watch?v=y-Df1gA8TeQ)
+  ### [Video source (no subtitle)](https://www.youtube.com/watch?v=6w-AvMZT3TY)
 </div>
 
   ### Japanese [Watch on Youtube](https://youtu.be/kec6Kk8b4G0)
@@ -195,10 +194,11 @@ If you don't want to read an academic paper, this tool can be summed up in one s
 
 - [x] pre-alpha version
 - [x] english translation
+- [ ] english translation GUI
 - [ ] CPU / GPU option
+- [ ] Slice big file to multiple small file(5min + 1min), prevent too long proccess time and allow to create progress bar
 - [ ] progress bar
 - [ ] preview srt
-- [ ] Slice big file to multiple small file(5min + 1min), prevent too long proccess time and allow to create progress bar
 - [ ] English to other language translation
 - [ ] package as exe
 - [ ] Multi-language Support
