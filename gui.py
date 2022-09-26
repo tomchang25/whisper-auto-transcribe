@@ -270,7 +270,16 @@ def change_type(file_type):
         return [gr.update(visible=False), gr.update(visible=True)]
 
 
-def transcribe_submit(language, precision, file_type, video_input, audio_input):
+def transcribe_submit(
+    language,
+    precision,
+    file_type,
+    video_input,
+    audio_input,
+    device,
+    time_slice,
+    task_type,
+):
     output_type = [None, None]
     if file_type == "Video":
         # output_type = [
@@ -289,7 +298,10 @@ def transcribe_submit(language, precision, file_type, video_input, audio_input):
     # print(",".join([language_key_list[language], precision_list[precision], file_type]))
 
     srt_path = transcribe_start(
-        precision_list[precision - 1], input_file, language_key_list[language]
+        model_type=precision_list[precision - 1],
+        file_path=input_file,
+        language_input=language_key_list[language],
+        task=task_type,
     )
 
     return output_type + [
@@ -324,6 +336,29 @@ with gr.Blocks() as demo:
             interactive=True,
         )
     with gr.Row():
+        device = gr.Radio(
+            label="Device",
+            value="Auto",
+            choices=["CPU", "GPU"],
+            interactive=False,
+        )
+
+        time_slice = gr.Slider(
+            minimum=0,
+            maximum=30,
+            step=1,
+            value=0,
+            interactive=False,
+            label="Time Slice",
+        )
+
+        task_type = gr.Radio(
+            ["Transcribe", "Translate"],
+            value="Video",
+            label="Task Type",
+            interactive=True,
+        )
+    with gr.Row():
         with gr.Column():
             video_input = gr.Video(
                 label="Video File", interactive=True, mirror_webcam=False
@@ -353,7 +388,16 @@ with gr.Blocks() as demo:
 
     submit_btn.click(
         fn=transcribe_submit,
-        inputs=[language, precision, file_type, video_input, audio_input],
+        inputs=[
+            language,
+            precision,
+            file_type,
+            video_input,
+            audio_input,
+            device,
+            time_slice,
+            task_type,
+        ],
         outputs=[video_output, audio_output, subtitle_output, srt_output],
     )
 
