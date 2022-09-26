@@ -194,7 +194,7 @@ If you don't want to read an academic paper, this tool can be summed up in one s
 
 - [x] pre-alpha version
 - [x] english translation
-- [ ] english translation GUI
+- [x] english translation GUI
 - [ ] CPU / GPU option
 - [ ] Slice big file to multiple small file(5min + 1min), prevent too long proccess time and allow to create progress bar
 - [ ] progress bar
