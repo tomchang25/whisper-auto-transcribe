@@ -1,15 +1,13 @@
 # %%
-from time import gmtime, strftime
 from language import lang2index, lang2name
 import gradio as gr
 from trans import transcribe_start
-
+import torch
 
 precision2model = ["tiny", "base", "small", "medium", "large"]
 
 
 def change_task_type(task_type):
-    # print(task_type)
     return gr.update(value=task_type)
 
 
@@ -21,7 +19,7 @@ def change_type(file_type):
 
 
 def transcribe_submit(
-    language,
+    language_input,
     precision,
     file_type,
     video_input,
@@ -37,15 +35,28 @@ def transcribe_submit(
         input_file = audio_input
 
     model = precision2model[precision - 1]
-    if lang2index == "en":
-        print("EN")
+    if lang2index[language_input] == "en":
+        # print("EN")
         model += ".en"
 
-    srt_path = transcribe_start(
+    if device == "GPU":
+        if torch.cuda.is_available():
+            device = "cuda"
+        else:
+            device = "cpu"
+    elif device == "CPU":
+        device = "cpu"
+
+    language = (
+        None if lang2index[language_input] == "auto" else lang2index[language_input]
+    )
+
+    srt_path, result = transcribe_start(
         model_type=model,
         file_path=input_file,
-        language_input=lang2index[language],
+        language=language,
         task=task_type.lower(),
+        device=device,
     )
 
     return output_type + [
@@ -53,11 +64,17 @@ def transcribe_submit(
         gr.update(value=srt_path, visible=True),
     ]
 
+    # return output_type + [
+    #     result,
+    #     gr.update(value=srt_path, visible=True),
+    # ]
 
+
+device = "GPU" if torch.cuda.is_available() else "CPU"
 # GUI Setup
 with gr.Blocks() as demo:
     with gr.Row():
-        language = gr.Dropdown(
+        language_input = gr.Dropdown(
             label="Language",
             value="Auto",
             choices=lang2name,
@@ -83,9 +100,9 @@ with gr.Blocks() as demo:
     with gr.Row():
         device = gr.Radio(
             label="Device",
-            value="Auto",
+            value=device,
             choices=["CPU", "GPU"],
-            interactive=False,
+            interactive=device == "GPU",
         )
 
         time_slice = gr.Slider(
@@ -140,7 +157,7 @@ with gr.Blocks() as demo:
     submit_btn.click(
         fn=transcribe_submit,
         inputs=[
-            language,
+            language_input,
             precision,
             file_type,
             video_input,

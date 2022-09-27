@@ -9,15 +9,15 @@ from pathlib import Path
 Path("./tmp").mkdir(parents=True, exist_ok=True)
 
 
-def transcribe_start(model_type, file_path, language_input, task="transcribe"):
-    # print(model_type, file_path, language_input)
-    language = None if language_input == "auto" else language_input
+def transcribe_start(model_type, file_path, language, task="transcribe", device=None):
+    print(model_type, file_path, language, task, device)
 
-    model = whisper.load_model(model_type)
+    model = whisper.load_model(model_type, device=device)
 
-    # print(model.device)
+    print(model.device)
 
-    result = model.transcribe(file_path, language=language, task=task)
+    result = model.transcribe(file_path, language=language, task=task, verbose=False)
+
     # print(result["text"])
     path = "./tmp/{}.srt".format(strftime("%Y%m%d-%H%M%S", gmtime()))
     # print(__file__)
@@ -47,9 +47,9 @@ def transcribe_start(model_type, file_path, language_input, task="transcribe"):
 
     torch.cuda.empty_cache()
 
-    return path
+    return path, result
 
 
 if __name__ == "__main__":
     # "transcribe","translate"
-    transcribe_start("large", "mp4/jp2.mp4", "ja", "translate")
+    transcribe_start("base", "mp4/en.mp4", "en", "transcribe")
