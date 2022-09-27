@@ -199,6 +199,7 @@ If you don't want to read an academic paper, this tool can be summed up in one s
 - [ ] Slice big file to multiple small file(5min + 1min), prevent too long proccess time and allow to create progress bar
 - [ ] progress bar
 - [ ] preview srt
+- [ ] streamlit cloud
 - [ ] English to other language translation
 - [ ] package as exe
 - [ ] Multi-language Support
