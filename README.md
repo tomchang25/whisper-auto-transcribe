@@ -195,11 +195,12 @@ If you don't want to read an academic paper, this tool can be summed up in one s
 - [x] pre-alpha version
 - [x] english translation
 - [x] english translation GUI
-- [ ] CPU / GPU option
+- [x] CPU / GPU option
 - [ ] fit media size
-- [ ] progress bar
+- [ ] GPU tutorial
 - [ ] Slice big file to multiple small file(5min + 1min), prevent too long proccess time and allow to create progress bar
-- [ ] demo version / 5 min / CPU / less then 3
+- [ ] progress bar
+- [ ] demo version / 5 min / CPU / model less then 3
 - [ ] huggingface space
 - [ ] streamlit gui version
 - [ ] streamlit cloud
