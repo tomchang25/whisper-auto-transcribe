@@ -1,4 +1,4 @@
-language_list = [
+lang2name = [
     "auto",
     "english",
     "chinese",
@@ -101,10 +101,11 @@ language_list = [
     "sundanese",
 ]
 
-language_list = [x.title() for x in language_list]
-language_list
+lang2name = [x.title() for x in lang2name]
+lang2name
 
-language_key_list = [
+
+lang2index = [
     "auto",
     "en",
     "zh",

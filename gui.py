@@ -1,11 +1,11 @@
 # %%
 from time import gmtime, strftime
-from language import language_key_list, language_list
+from language import lang2index, lang2name
 import gradio as gr
 from trans import transcribe_start
 
 
-precision_list = ["tiny", "base", "small", "medium", "large"]
+precision2model = ["tiny", "base", "small", "medium", "large"]
 
 
 def change_task_type(task_type):
@@ -32,27 +32,19 @@ def transcribe_submit(
 ):
     output_type = [None, None]
     if file_type == "Video":
-        # output_type = [
-        #     gr.update(value=video_input, visible=True),
-        #     gr.update(visible=False),
-        # ]
         input_file = video_input
     elif file_type == "Audio":
-        # output_type = [
-        #     gr.update(visible=False),
-        #     gr.update(value=audio_input, visible=True),
-        # ]
         input_file = audio_input
 
-    # print(precision_list[precision - 1])
-    # print(task_type.lower())
-
-    # print(",".join([language_key_list[language], precision_list[precision], file_type]))
+    model = precision2model[precision - 1]
+    if lang2index == "en":
+        print("EN")
+        model += ".en"
 
     srt_path = transcribe_start(
-        model_type=precision_list[precision - 1],
+        model_type=model,
         file_path=input_file,
-        language_input=language_key_list[language],
+        language_input=lang2index[language],
         task=task_type.lower(),
     )
 
@@ -68,7 +60,7 @@ with gr.Blocks() as demo:
         language = gr.Dropdown(
             label="Language",
             value="Auto",
-            choices=language_list,
+            choices=lang2name,
             type="index",
             interactive=True,
         )
