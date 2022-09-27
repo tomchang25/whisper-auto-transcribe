@@ -1,58 +1,15 @@
 # %%
-import whisper
-import datetime
-import torch
 from time import gmtime, strftime
 from language import language_key_list, language_list
+import gradio as gr
+from trans import transcribe_start
+
 
 precision_list = ["tiny", "base", "small", "medium", "large"]
 
 
-def transcribe_start(model_type, file_path, language_input, task="transcribe"):
-    # print(model_type, file_path, language_input)
-    language = None if language_input == "auto" else language_input
-
-    model = whisper.load_model(model_type)
-
-    print(model.device)
-
-    result = model.transcribe(file_path, language=language, task=task)
-    # print(result["text"])
-    path = "{}.srt".format(strftime("%Y%m%d-%H%M%S", gmtime()))
-    # print(__file__)
-    with open(path, "w", encoding="UTF-8") as f:
-        for seg in result["segments"]:
-            id = seg["id"]
-            start = (
-                str(datetime.timedelta(seconds=round(seg["start"])))
-                + ","
-                + str(seg["start"] % 1)[2:5]
-            )
-            end = (
-                str(datetime.timedelta(seconds=round(seg["end"])))
-                + ","
-                + str(seg["end"] % 1)[2:5]
-            )
-            text = seg["text"]
-            f.write(f"{id}\n{start} --> {end}\n{text}\n\n")
-
-    # del result
-    # model.to("cpu")
-
-    del model.encoder
-    del model.decoder
-
-    torch.cuda.empty_cache()
-
-    return path
-
-
-# %%
-import gradio as gr
-
-
 def change_task_type(task_type):
-    print(task_type)
+    # print(task_type)
     return gr.update(value=task_type)
 
 
@@ -87,8 +44,8 @@ def transcribe_submit(
         # ]
         input_file = audio_input
 
-    print(precision_list[precision - 1])
-    print(task_type.lower())
+    # print(precision_list[precision - 1])
+    # print(task_type.lower())
 
     # print(",".join([language_key_list[language], precision_list[precision], file_type]))
 
@@ -105,6 +62,7 @@ def transcribe_submit(
     ]
 
 
+# GUI Setup
 with gr.Blocks() as demo:
     with gr.Row():
         language = gr.Dropdown(
