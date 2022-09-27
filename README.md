@@ -198,6 +198,7 @@ If you don't want to read an academic paper, this tool can be summed up in one s
 - [ ] CPU / GPU option
 - [ ] progress bar
 - [ ] Slice big file to multiple small file(5min + 1min), prevent too long proccess time and allow to create progress bar
+- [ ] huggingface space
 - [ ] streamlit gui version
 - [ ] streamlit cloud
 - [ ] preview srt
