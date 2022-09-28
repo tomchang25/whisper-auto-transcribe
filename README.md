@@ -209,18 +209,19 @@ There are currently several restrictions on this project.
 1. GPU acceleration only works on CUDA environment.
 2. File time should not exceed 30 min, because of the performance problem.
 
-Also, if you want use GPU acceleration, please make sure you have enough GPU RAM.
+Also, if you want to use GPU acceleration, please make sure you have enough GPU VRAM.
 Here is some recommended value.
 
 
-|  Size  |    Whisper model   | Required VRAM | Relative speed |
-|:------:|:------------------:|:-------------:|:--------------:|
-|  tiny  |       `tiny`       |     ~1 GB     |      ~32x      |
-|  base  |       `base`       |     ~1 GB     |      ~16x      |
-| small  |      `small`       |     ~2 GB     |      ~6x       |
-| medium |      `medium`      |     ~5 GB     |      ~2x       |
-| large  |      `large`       |    ~10 GB     |       1x       |
+| Precision |    Whisper model   | Required VRAM |    Time used   |   Performance  |
+|:---------:|:------------------:|:-------------:|:--------------:|:--------------:|
+|     1     |       `tiny`       |     ~1 GB     |      ~1/5      |    ~Disaster   |
+|     2     |       `base`       |     ~1 GB     |      ~1/5      |    ~Youtube    |
+|     3     |      `small`       |     ~2 GB     |      ~1/4      |       -        |
+|     4     |      `medium`      |     ~5 GB     |      ~1/3      |       -        |
+|     5     |      `large`       |    ~10 GB     |      ~1/2      |    ~Sonix.ai   |
 
+*Time used is relatived to video/audio time
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
