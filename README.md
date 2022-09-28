@@ -157,9 +157,10 @@ If you don't want to read an academic paper, this tool can be summed up in one s
    git clone https://github.com/tomchang25/whisper-auto-transcribe.git
    cd whisper-auto-transcribe
    ```
-3. Install whisper dependency
+3. Install dependency
    ```sh
    pip install git+https://github.com/openai/whisper.git 
+   pip install gradio
    ```
 4. Install [ffmpeg](https://ffmpeg.org/)
    ```sh
