@@ -232,8 +232,8 @@ Here is some recommended value.
 - [x] english translation
 - [x] english translation GUI
 - [x] CPU / GPU option
+- [x] GPU tutorial
 - [ ] fit media size
-- [ ] GPU tutorial
 - [ ] Slice big file to multiple small file(5min + 1min), prevent too long proccess time and allow to create progress bar
 - [ ] progress bar
 - [ ] demo version / 5 min / CPU / model less then 3
