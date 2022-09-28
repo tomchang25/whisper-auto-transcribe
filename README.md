@@ -208,7 +208,7 @@ If you don't want to read an academic paper, this tool can be summed up in one s
 <!-- Limitation -->
 ## Limitation
 
-There are currently several restrictions on this project.
+Currently, there are several restrictions on this project.
 
 1. GPU acceleration only works on CUDA environment.
 2. File time should not exceed 30 min, because of the performance problem.
