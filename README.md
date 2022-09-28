@@ -213,7 +213,7 @@ Also, if you want to use GPU acceleration, please make sure you have enough GPU 
 Here is some recommended value.
 
 
-| Precision |    Whisper model   | Required VRAM |    Time used   |   Performance  |
+| Precision |    Whisper model   | Required VRAM |   *Time used   |   Performance  |
 |:---------:|:------------------:|:-------------:|:--------------:|:--------------:|
 |     1     |       `tiny`       |     ~1 GB     |      ~1/5      |    ~Disaster   |
 |     2     |       `base`       |     ~1 GB     |      ~1/5      |    ~Youtube    |
@@ -221,7 +221,7 @@ Here is some recommended value.
 |     4     |      `medium`      |     ~5 GB     |      ~1/3      |       -        |
 |     5     |      `large`       |    ~10 GB     |      ~1/2      |    ~Sonix.ai   |
 
-*Time used is relatived to video/audio time
+*Time used is relatived to video/audio time and test in GPU acceleration mode
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
