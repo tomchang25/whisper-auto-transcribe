@@ -187,7 +187,11 @@ If you don't want to read an academic paper, this tool can be summed up in one s
 
 1. Install [CUDA](https://developer.nvidia.com/cuda-11.3.0-download-archive)
 2. Install [CUDNN](https://developer.nvidia.com/rdp/cudnn-archive)
-3. Reinstall [GPU version Pytorch](https://pytorch.org/get-started/locally/)
+3. Unistall CPU version Pytorch
+   ```sh
+   pip uninstall torch torchvision torchaudio
+   ```
+4. Reinstall [GPU version Pytorch](https://pytorch.org/get-started/locally/)
    ```sh
    # on Windows
    pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu113
