@@ -182,11 +182,45 @@ If you don't want to read an academic paper, this tool can be summed up in one s
    python gui.py
    ```
 
+<!-- GPU acceleration -->
+## (Optional) GPU acceleration (CUDA.11.3)
+
+1. Install [CUDA](https://developer.nvidia.com/cuda-11.3.0-download-archive)
+2. Install [CUDNN](https://developer.nvidia.com/rdp/cudnn-archive)
+3. Reinstall [GPU version Pytorch](https://pytorch.org/get-started/locally/)
+   ```sh
+   # on Windows
+   pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu113
+   ```
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- How to use -->
 ## How to use
   <img src="images/Demo1.png" alt="How to use" width="800" height="450">
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- Limitation -->
+## Limitation
+
+There are currently several restrictions on this project.
+
+1. GPU acceleration only works on CUDA environment.
+2. File time should not exceed 30 min, because of the performance problem.
+
+Also, if you want use GPU acceleration, please make sure you have enough GPU RAM.
+Here is some recommended value.
+
+
+|  Size  |    Whisper model   | Required VRAM | Relative speed |
+|:------:|:------------------:|:-------------:|:--------------:|
+|  tiny  |       `tiny`       |     ~1 GB     |      ~32x      |
+|  base  |       `base`       |     ~1 GB     |      ~16x      |
+| small  |      `small`       |     ~2 GB     |      ~6x       |
+| medium |      `medium`      |     ~5 GB     |      ~2x       |
+| large  |      `large`       |    ~10 GB     |       1x       |
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
