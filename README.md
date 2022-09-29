@@ -202,6 +202,16 @@ If you don't want to read an academic paper, this tool can be summed up in one s
 <!-- How to use -->
 ## How to use
   <img src="images/Demo1.png" alt="How to use" width="800" height="450">
+  
+## Command-line interface
+   ```sh
+   # Get help messages
+   python .\cli.py -h
+   
+   # A simple example
+   python .\cli.py .\mp4\1min.mp4 --output .\tmp\123456.srt -lang ja --task translate --model small
+   ```
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
