@@ -3,6 +3,7 @@ from language import lang2index, lang2name
 import gradio as gr
 from trans import easy_task
 import torch
+from pathlib import Path
 
 precision2model = ["tiny", "base", "small", "medium", "large"]
 
@@ -28,17 +29,21 @@ def transcribe_submit(
     time_slice,
     task_type,
 ):
+
     output_type = [None, None]
     if file_type == "Video":
         input_file = video_input
     elif file_type == "Audio":
         input_file = audio_input
 
+    file_name = "tmp/" + Path(input_file).stem[:-8] + ".srt"
+
     model = precision2model[precision - 1]
 
     srt_path, _ = easy_task(
         model_type=model,
         file_path=input_file,
+        output_path=file_name,
         language=lang2index[language_input],
         task=task_type.lower(),
         device=device.lower(),
@@ -48,6 +53,16 @@ def transcribe_submit(
         gr.update(value="Done", visible=True),
         gr.update(value=srt_path, visible=True),
     ]
+
+
+# def foo(t):
+#     print(t)
+#     t = Path(t)
+
+#     file_name = t.stem[:-8]
+#     print(file_name)
+
+#     return file_name
 
 
 device = "GPU" if torch.cuda.is_available() else "CPU"
@@ -124,6 +139,12 @@ with gr.Blocks() as demo:
             )
             srt_output = gr.File(interactive=False, visible=False)
 
+    # video_input.change(
+    #     fn=foo,
+    #     inputs=[video_input],
+    #     outputs=[submit_btn],
+    # )
+
     file_type.change(
         fn=change_type,
         inputs=[file_type],
@@ -152,6 +173,7 @@ with gr.Blocks() as demo:
     )
 
     # demo_play.play()
+
 
 demo.launch()
 
