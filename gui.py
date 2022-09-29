@@ -1,7 +1,7 @@
 # %%
 from language import lang2index, lang2name
 import gradio as gr
-from trans import transcribe_start
+from trans import easy_task
 import torch
 
 precision2model = ["tiny", "base", "small", "medium", "large"]
@@ -35,39 +35,19 @@ def transcribe_submit(
         input_file = audio_input
 
     model = precision2model[precision - 1]
-    if lang2index[language_input] == "en":
-        # print("EN")
-        model += ".en"
 
-    if device == "GPU":
-        if torch.cuda.is_available():
-            device = "cuda"
-        else:
-            device = "cpu"
-    elif device == "CPU":
-        device = "cpu"
-
-    language = (
-        None if lang2index[language_input] == "auto" else lang2index[language_input]
-    )
-
-    srt_path, result = transcribe_start(
+    srt_path, _ = easy_task(
         model_type=model,
         file_path=input_file,
-        language=language,
+        language=lang2index[language_input],
         task=task_type.lower(),
-        device=device,
+        device=device.lower(),
     )
 
     return output_type + [
         gr.update(value="Done", visible=True),
         gr.update(value=srt_path, visible=True),
     ]
-
-    # return output_type + [
-    #     result,
-    #     gr.update(value=srt_path, visible=True),
-    # ]
 
 
 device = "GPU" if torch.cuda.is_available() else "CPU"
@@ -121,7 +101,9 @@ with gr.Blocks() as demo:
             interactive=True,
         )
     with gr.Row():
-        with gr.Column():
+        with gr.Column(scale=0.25):
+            pass
+        with gr.Column(scale=0.5):
             video_input = gr.Video(
                 label="Video File", interactive=True, mirror_webcam=False
             )
