@@ -157,9 +157,10 @@ If you don't want to read an academic paper, this tool can be summed up in one s
    git clone https://github.com/tomchang25/whisper-auto-transcribe.git
    cd whisper-auto-transcribe
    ```
-3. Install whisper dependency
+3. Install dependency
    ```sh
    pip install git+https://github.com/openai/whisper.git 
+   pip install gradio
    ```
 4. Install [ffmpeg](https://ffmpeg.org/)
    ```sh
@@ -181,11 +182,50 @@ If you don't want to read an academic paper, this tool can be summed up in one s
    python gui.py
    ```
 
+<!-- GPU acceleration -->
+## (Optional) GPU acceleration (CUDA.11.3)
+
+1. Install [CUDA](https://developer.nvidia.com/cuda-11.3.0-download-archive)
+2. Install [CUDNN](https://developer.nvidia.com/rdp/cudnn-archive)
+3. Unistall CPU version Pytorch
+   ```sh
+   pip uninstall torch torchvision torchaudio
+   ```
+4. Reinstall [GPU version Pytorch](https://pytorch.org/get-started/locally/)
+   ```sh
+   # on Windows
+   pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu113
+   ```
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- How to use -->
 ## How to use
   <img src="images/Demo1.png" alt="How to use" width="800" height="450">
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- Limitation -->
+## Limitation
+
+Currently, there are several restrictions on this project.
+
+1. GPU acceleration only works on CUDA environment.
+2. File time should not exceed 30 min, because of the performance problem.
+
+Also, if you want to use GPU acceleration, please make sure you have enough GPU VRAM.
+Here is some recommended value.
+
+
+| Precision |    Whisper model   | Required VRAM |   *Time used   |   Performance  |
+|:---------:|:------------------:|:-------------:|:--------------:|:--------------:|
+|     1     |       `tiny`       |     ~1 GB     |      ~1/20      |    ~Disaster   |
+|     2     |       `base`       |     ~1 GB     |      ~1/10      |    ~Youtube    |
+|     3     |      `small`       |     ~2 GB     |      ~1/8      |       -        |
+|     4     |      `medium`      |     ~5 GB     |      ~1/5      |       -        |
+|     5     |      `large`       |    ~10 GB     |      ~1/2      |    ~Sonix.ai   |
+
+*Time used is relatived to video/audio time and test in 7 min Enlgish audio with GPU acceleration.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -196,8 +236,8 @@ If you don't want to read an academic paper, this tool can be summed up in one s
 - [x] english translation
 - [x] english translation GUI
 - [x] CPU / GPU option
+- [x] GPU tutorial
 - [ ] fit media size
-- [ ] GPU tutorial
 - [ ] Slice big file to multiple small file(5min + 1min), prevent too long proccess time and allow to create progress bar
 - [ ] progress bar
 - [ ] demo version / 5 min / CPU / model less then 3
