@@ -219,13 +219,13 @@ Here is some recommended value.
 
 | Precision |    Whisper model   | Required VRAM |   *Time used   |   Performance  |
 |:---------:|:------------------:|:-------------:|:--------------:|:--------------:|
-|     1     |       `tiny`       |     ~1 GB     |      ~1/5      |    ~Disaster   |
-|     2     |       `base`       |     ~1 GB     |      ~1/5      |    ~Youtube    |
-|     3     |      `small`       |     ~2 GB     |      ~1/4      |       -        |
-|     4     |      `medium`      |     ~5 GB     |      ~1/3      |       -        |
+|     1     |       `tiny`       |     ~1 GB     |      ~1/20      |    ~Disaster   |
+|     2     |       `base`       |     ~1 GB     |      ~1/10      |    ~Youtube    |
+|     3     |      `small`       |     ~2 GB     |      ~1/8      |       -        |
+|     4     |      `medium`      |     ~5 GB     |      ~1/5      |       -        |
 |     5     |      `large`       |    ~10 GB     |      ~1/2      |    ~Sonix.ai   |
 
-*Time used is relatived to video/audio time and test in GPU acceleration mode
+*Time used is relatived to video/audio time and test in 7 min Enlgish audio with GPU acceleration.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
