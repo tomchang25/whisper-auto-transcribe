@@ -247,8 +247,13 @@ Here is some recommended value.
 - [x] english translation GUI
 - [x] CPU / GPU option
 - [x] GPU tutorial
-- [ ] fit media size
+- [x] fit media size
+- [x] CLI
+- [x] Same file name
+- [ ] Slice big file CLI
+- [ ] Slice big file GUI
 - [ ] Slice big file to multiple small file(5min + 1min), prevent too long proccess time and allow to create progress bar
+- [ ] 3 Layer GUI
 - [ ] progress bar
 - [ ] demo version / 5 min / CPU / model less then 3
 - [ ] huggingface space
