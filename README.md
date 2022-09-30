@@ -43,8 +43,9 @@ Features:
 - Auto generates subtitle from video/audio
 - Auto translate to English
 - 99 language support
-- High accuracy. Easy to use
-- GPU acceleration (WIP)
+- High accuracy. Easy to use.
+- GPU acceleration
+- CLI mode for batch task
 - More features are coming soon
 
 <!--
