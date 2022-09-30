@@ -254,6 +254,7 @@ Here is some recommended value.
 - [ ] Slice big file CLI
 - [ ] Slice big file GUI
 - [ ] Slice big file to multiple small file(5min + 1min), prevent too long proccess time and allow to create progress bar
+- [ ] Alpha version
 - [ ] 3 Layer GUI
 - [ ] progress bar
 - [ ] demo version / 5 min / CPU / model less then 3
