@@ -201,7 +201,13 @@ If you don't want to read an academic paper, this tool can be summed up in one s
 <!-- Accompaniment separation -->
 ## (Optional) Accompaniment separation (WIP)
 
-A. Install [Zlib](https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html#install-zlib-windows)
+1. Install [Zlib](https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html#install-zlib-windows)
+2. Install [Spleeter](https://github.com/deezer/spleeter)
+   ```sh
+   pip install spleeter
+   ```
+
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
