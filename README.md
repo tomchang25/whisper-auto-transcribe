@@ -195,7 +195,7 @@ If you don't want to read an academic paper, this tool can be summed up in one s
 4. Reinstall [GPU version Pytorch](https://pytorch.org/get-started/locally/)
    ```sh
    # on Windows
-   python -m pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 -f https://download.pytorch.org/whl/torch_stable.html
+   python -m pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 torchaudio==0.12.1+cu113 -f https://download.pytorch.org/whl/torch_stable.html
    ```
    
 <!-- Accompaniment separation -->
