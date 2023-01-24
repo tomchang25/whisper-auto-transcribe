@@ -198,7 +198,6 @@ def gui():
                     ass_download = gr.File(label="ass download", interactive=False)
                 with gr.Row():
                     demo_video = gr.Video(
-                        caption="out/out1.srt",
                         label="Demo",
                         interactive=False,
                     )

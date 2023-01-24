@@ -4,6 +4,8 @@ if not defined PYTHON (set PYTHON=python)
 if not defined VENV_DIR (set VENV_DIR=venv)
 
 set ERROR_REPORTING=FALSE
+SET PATH=%PATH%;%CD%\ffmpeg
+
 
 mkdir tmp 2>NUL
 
