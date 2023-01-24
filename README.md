@@ -195,8 +195,19 @@ If you don't want to read an academic paper, this tool can be summed up in one s
 4. Reinstall [GPU version Pytorch](https://pytorch.org/get-started/locally/)
    ```sh
    # on Windows
-   pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu113
+   python -m pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 torchaudio==0.12.1+cu113 -f https://download.pytorch.org/whl/torch_stable.html
    ```
+   
+<!-- Accompaniment separation -->
+## (Optional) Accompaniment separation (WIP)
+
+1. Install [Zlib](https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html#install-zlib-windows)
+2. Install [Spleeter](https://github.com/deezer/spleeter)
+   ```sh
+   pip install spleeter
+   ```
+
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
