@@ -277,19 +277,19 @@ Here is some recommended value.
 - [x] fit media size
 - [x] CLI
 - [x] Same file name
+- [x] 3 Layer GUI
+- [x] Easy install
+- [x] preview srt
+- [x] Alpha version
 - [ ] Slice big file CLI
 - [ ] Slice big file GUI
 - [ ] Slice big file to multiple small file(5min + 1min), prevent too long proccess time and allow to create progress bar
-- [ ] Alpha version
-- [ ] 3 Layer GUI
 - [ ] progress bar
 - [ ] demo version / 5 min / CPU / model less then 3
 - [ ] huggingface space
 - [ ] streamlit gui version
 - [ ] streamlit cloud
-- [ ] preview srt
 - [ ] English to other language translation
-- [ ] package as exe
 - [ ] Multi-language Support
     - [ ] Traditional Chinese
     - [ ] Japanese
