@@ -149,7 +149,22 @@ If you don't want to read an academic paper, this tool can be summed up in one s
 
 
 <!-- GETTING STARTED -->
-## Installation
+## Installation (New)
+
+1. Install [Python 3](https://www.python.org/downloads/)
+
+2. Click webui.bat
+
+3. Check there is no error and last lines is
+```
+Launching Web UI with arguments: 
+Running on local URL:  http://127.0.0.1:7860
+```
+
+4. Open browser and enter http://127.0.0.1:7860
+
+
+## Installation (Old, you don't need this unless something fuck up...or your os is Linux)
 
 1. Install [Python 3](https://www.python.org/downloads/)
 
@@ -262,19 +277,19 @@ Here is some recommended value.
 - [x] fit media size
 - [x] CLI
 - [x] Same file name
+- [x] 3 Layer GUI
+- [x] Easy install
+- [x] preview srt
+- [x] Alpha version
 - [ ] Slice big file CLI
 - [ ] Slice big file GUI
 - [ ] Slice big file to multiple small file(5min + 1min), prevent too long proccess time and allow to create progress bar
-- [ ] Alpha version
-- [ ] 3 Layer GUI
 - [ ] progress bar
 - [ ] demo version / 5 min / CPU / model less then 3
 - [ ] huggingface space
 - [ ] streamlit gui version
 - [ ] streamlit cloud
-- [ ] preview srt
 - [ ] English to other language translation
-- [ ] package as exe
 - [ ] Multi-language Support
     - [ ] Traditional Chinese
     - [ ] Japanese
