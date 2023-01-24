@@ -158,15 +158,15 @@ If you don't want to read an academic paper, this tool can be summed up in one s
    cd whisper-auto-transcribe
    ```
 
-2. Open webui.bat
+3. Open webui.bat
 
-3. Check there is no error and last lines are
+4. Check there is no error and last lines are
 ```
 Launching Web UI with arguments: 
 Running on local URL:  http://127.0.0.1:7860
 ```
 
-4. Open browser and enter http://127.0.0.1:7860
+5. Open browser and enter http://127.0.0.1:7860
 
 ## Installation (Old, you don't need this unless something fuck up...or your os isn't Windows)
 
