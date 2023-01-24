@@ -1,5 +1,5 @@
 import argparse
-from trans import easy_task
+from task import easy_task
 
 
 def cli():
@@ -26,9 +26,9 @@ def cli():
         "--task",
         metavar="task",
         type=str,
-        help="Task mode [translate, transcribe] Default [translate].",
+        help="Task mode [translate, transcribe] Default [transcribe].",
         required=False,
-        default="translate",
+        default="transcribe",
     )
 
     parser.add_argument(

@@ -17,6 +17,7 @@ def easy_task(
     language="auto",
     model_type="base",
     task="transcribe",
+    slice_interval=0,
 ):
     # parameter
     try:
