@@ -153,15 +153,20 @@ If you don't want to read an academic paper, this tool can be summed up in one s
 
 1. Install [Python 3](https://www.python.org/downloads/)
 
-2. Click webui.bat
+2. Open webui.bat
 
-3. Check there is no error and last lines is
+3. Check there is no error and last lines are
 ```
 Launching Web UI with arguments: 
 Running on local URL:  http://127.0.0.1:7860
 ```
 
 4. Open browser and enter http://127.0.0.1:7860
+
+4a. Still able to open application by
+   ```sh
+   python gui.py
+   ```
 
 
 ## Installation (Old, you don't need this unless something fuck up...or your os is Linux)
