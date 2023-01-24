@@ -152,6 +152,11 @@ If you don't want to read an academic paper, this tool can be summed up in one s
 ## Installation (New)
 
 1. Install [Python 3](https://www.python.org/downloads/)
+2. Clone the repo
+   ```sh
+   git clone https://github.com/tomchang25/whisper-auto-transcribe.git
+   cd whisper-auto-transcribe
+   ```
 
 2. Open webui.bat
 
