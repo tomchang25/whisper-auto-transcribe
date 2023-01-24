@@ -151,15 +151,17 @@ If you don't want to read an academic paper, this tool can be summed up in one s
 <!-- GETTING STARTED -->
 ## Installation (New)
 
-1. Click webui.bat
+1. Install [Python 3](https://www.python.org/downloads/)
 
-2. Check there is no error and last lines is
+2. Click webui.bat
+
+3. Check there is no error and last lines is
 ```
 Launching Web UI with arguments: 
 Running on local URL:  http://127.0.0.1:7860
 ```
 
-3. Open browser and enter http://127.0.0.1:7860
+4. Open browser and enter http://127.0.0.1:7860
 
 
 ## Installation (Old, you don't need this unless something fuck up...or your os is Linux)
