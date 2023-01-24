@@ -163,7 +163,7 @@ Running on local URL:  http://127.0.0.1:7860
 
 4. Open browser and enter http://127.0.0.1:7860
 
-## Installation (Old, you don't need this unless something fuck up...or your os is Linux)
+## Installation (Old, you don't need this unless something fuck up...or your os isn't Windows)
 
 1. Install [Python 3](https://www.python.org/downloads/)
 
