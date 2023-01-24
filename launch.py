@@ -33,6 +33,10 @@ custom_gradio_commit_hash = os.environ.get(
     "CUSTOM_GRADIO_COMMIT_HASH", "a852b74bc71448b6fa4c93cf01d29443a1ca24bf"
 )
 
+custom_gradio_templates_commit_hash = os.environ.get(
+    "CUSTOM_GRADIO_TEMPLATES_COMMIT_HASH", "e1f7151e7ee44dfc28257fd3159330a8573c754e"
+)
+
 stable_diffusion_commit_hash = os.environ.get(
     "STABLE_DIFFUSION_COMMIT_HASH", "69ae4b35e0a0f6ee1af8bb9a5d0016ccb27e36dc"
 )
@@ -208,21 +212,35 @@ if not is_installed("gradio"):
         custom_gradio_commit_hash,
     )
 
-    run_pip("install ./repositories/gradio", "gradio")
+    run_pip(f"install {dir_repos}/gradio", "gradio")
 
-    run(
-        "pnpm i",
-        "Install gardio front",
-        "Couldn't install gardio front",
-        f"{dir_repos}/gradio/ui",
+    git_clone(
+        "https://github.com/tomchang25/gradio-templates.git",
+        repo_dir("gradio-templates"),
+        "Custom Gradio templates",
+        custom_gradio_templates_commit_hash,
     )
 
     run(
-        "pnpm build",
-        "building gardio front",
+        rf"xcopy {dir_repos}\gradio-templates\templates ven\Lib\site-packages\gradio\templates\ /e/y/i",
+        "Building gardio front",
         "Couldn't build gardio front",
-        f"{dir_repos}/gradio/ui",
     )
+
+    # run(
+    #     "pnpm i",
+    #     "Install gardio front",
+    #     "Couldn't install gardio front",
+    #     f"{dir_repos}/gradio/ui",
+    # )
+
+    # run(
+    #     "pnpm build",
+    #     "building gardio front",
+    #     "Couldn't build gardio front",
+    #     f"{dir_repos}/gradio/ui",
+    # )
+
 
 if not is_installed("whisper"):
     run_pip("install git+https://github.com/openai/whisper.git ", "whisper")
