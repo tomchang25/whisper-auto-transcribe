@@ -222,7 +222,7 @@ if not is_installed("gradio"):
     )
 
     run(
-        rf"xcopy {dir_repos}\gradio-templates\templates ven\Lib\site-packages\gradio\templates\ /e/y/i",
+        rf"xcopy {dir_repos}\gradio-templates\templates venv\Lib\site-packages\gradio\templates\ /e/y/i",
         "Building gardio front",
         "Couldn't build gardio front",
     )
