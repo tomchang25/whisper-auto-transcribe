@@ -46,7 +46,6 @@ Features:
 - High accuracy. Easy to use.
 - GPU acceleration
 - CLI mode for batch task
-- More features are coming soon
 - One click installer
 - Subtitle preview
 - Youtube video support
