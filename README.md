@@ -47,6 +47,12 @@ Features:
 - GPU acceleration
 - CLI mode for batch task
 - More features are coming soon
+- One click installer
+- Subtitle preview
+- Youtube video support
+
+
+
 
 <!--
 I made some changes to output the subtitle files, and added a graphical interface.
