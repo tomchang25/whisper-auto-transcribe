@@ -290,6 +290,8 @@ Here is some recommended value.
 - [x] Easy install
 - [x] preview srt
 - [x] Alpha version
+- [ ] Changelog
+- [ ] Accompaniment separation
 - [ ] Slice big file CLI
 - [ ] Slice big file GUI
 - [ ] Slice big file to multiple small file(5min + 1min), prevent too long proccess time and allow to create progress bar
