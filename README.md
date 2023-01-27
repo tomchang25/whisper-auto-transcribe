@@ -275,44 +275,6 @@ Here is some recommended value.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- ROADMAP -->
-## Roadmap
-
-- [x] pre-alpha version
-- [x] english translation
-- [x] english translation GUI
-- [x] CPU / GPU option
-- [x] GPU tutorial
-- [x] fit media size
-- [x] CLI
-- [x] Same file name
-- [x] 3 Layer GUI
-- [x] Easy install
-- [x] preview srt
-- [x] Alpha version
-- [ ] Changelog
-- [ ] Accompaniment separation
-- [ ] Slice big file CLI
-- [ ] Slice big file GUI
-- [ ] Slice big file to multiple small file(5min + 1min), prevent too long proccess time and allow to create progress bar
-- [ ] progress bar
-- [ ] demo version / 5 min / CPU / model less then 3
-- [ ] huggingface space
-- [ ] streamlit gui version
-- [ ] streamlit cloud
-- [ ] English to other language translation
-- [ ] Multi-language Support
-    - [ ] Traditional Chinese
-    - [ ] Japanese
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-## Known bug
-- [ ] Lots of work to do.
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
 <!-- Q & A -->
 <!--
 
@@ -336,10 +298,6 @@ Here is some recommended value.
 3. Is it better then Sonix.ai?
    ```
    Sonix.ai is nearly perfect actually, but hey! you need to pay the bill!
-   ```
-4. Your code suck!
-   ```
-   Why dont you release a better version. So I can use your project and spend more time to relax.
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
