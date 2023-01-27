@@ -177,11 +177,13 @@ if not is_installed("torch") or not is_installed("torchvision"):
         "Installing torch and torchvision",
         "Couldn't install torch",
     )
+else:
+    print("Check torch and torchvision")
 
-if not skip_torch_cuda_test:
-    run_python(
-        "import torch; assert torch.cuda.is_available(), 'Torch is not able to use GPU; add --skip-torch-cuda-test to COMMANDLINE_ARGS variable to disable this check'"
-    )
+# if not skip_torch_cuda_test:
+#     run_python(
+#         "import torch; assert torch.cuda.is_available(), 'Torch is not able to use GPU; add --skip-torch-cuda-test to COMMANDLINE_ARGS variable to disable this check'"
+#     )
 
 # if not is_installed("gfpgan"):
 #     run_pip(f"install {gfpgan_package}", "gfpgan")
@@ -240,10 +242,14 @@ if not is_installed("gradio"):
     #     "Couldn't build gardio front",
     #     f"{dir_repos}/gradio/ui",
     # )
+else:
+    print("Check gradio")
 
 
 if not is_installed("whisper"):
     run_pip("install git+https://github.com/openai/whisper.git ", "whisper")
+else:
+    print("Check whisper")
 
 
 # git_clone(
