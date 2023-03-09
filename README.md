@@ -170,43 +170,7 @@ If you don't want to read an academic paper, this tool can be summed up in one s
    Launching Web UI with arguments: 
    Running on local URL:  http://127.0.0.1:7860
    ```
-
-5. Open browser and enter http://127.0.0.1:7860
-
-## Installation (Old, you don't need this unless something fuck up...or your os isn't Windows)
-
-1. Install [Python 3](https://www.python.org/downloads/)
-
-2. Clone the repo
-   ```sh
-   git clone https://github.com/tomchang25/whisper-auto-transcribe.git
-   cd whisper-auto-transcribe
-   ```
-3. Install dependency
-   ```sh
-   pip install git+https://github.com/openai/whisper.git 
-   pip install gradio
-   ```
-4. Install [ffmpeg](https://ffmpeg.org/)
-   ```sh
-   # on Ubuntu or Debian
-   sudo apt update && sudo apt install ffmpeg
-
-   # on MacOS using Homebrew (https://brew.sh/)
-   brew install ffmpeg
-
-   # on Windows using Chocolatey (https://chocolatey.org/)
-   choco install ffmpeg
-
-   # on Windows using Scoop (https://scoop.sh/)
-   scoop install ffmpeg
-
-   ```
-5. Open application
-   ```sh
-   python gui.py
-   ```
-
+   
 <!-- GPU acceleration -->
 ## (Optional) GPU acceleration (CUDA.11.3)
 
