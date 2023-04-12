@@ -5,7 +5,7 @@ from time import localtime, strftime, time
 
 import torch
 import whisper
-from utils import write_srt
+from utils.helpers import write_srt
 from language import lang2index
 
 
@@ -70,7 +70,6 @@ def task_start(
     model_type,
     task,
 ):
-
     # process
     model = whisper.load_model(model_type, device=device)
 

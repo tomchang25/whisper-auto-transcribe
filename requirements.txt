@@ -27,4 +27,3 @@ ffmpeg-python
 more-itertools
 tqdm
 yt_dlp
-ffmpeg-python
