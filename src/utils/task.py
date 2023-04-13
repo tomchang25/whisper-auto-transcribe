@@ -71,8 +71,10 @@ def transcribe(
 
         try:
             subprocess.run(cmd, check=True)
-        except:
-            raise Exception(f"Error. Vocal extracter unavailable. Received: {cmd}")
+        except Exception as e:
+            raise Exception(
+                f"Error. Vocal extracter unavailable. Received: {cmd} \nError Code: {e}"
+            )
 
         media = f"./tmp/{demucs_directory}/htdemucs/vocals.wav"
 

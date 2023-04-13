@@ -41,6 +41,8 @@ def create_source_tab():
                                 interactive=True,
                                 mirror_webcam=False,
                             )
+
+                            gr.File()
             with gr.Box(visible=False) as audio_tab:
                 with gr.Column():
                     audio_input = gr.Audio(
@@ -57,6 +59,9 @@ def create_source_tab():
             "outtmpl": "/mp4/%(title)s.%(ext)s",
             "quiet": True,
         }
+
+        if video_url == None or video_url.strip() == "":
+            return None
 
         with YoutubeDL(ydl_opts) as ydl:
             info = ydl.extract_info(video_url, download=True)
