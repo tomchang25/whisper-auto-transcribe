@@ -40,18 +40,36 @@ For more details, you can check [this](https://cdn.openai.com/papers/whisper.pdf
 
 Features:
 
-- Auto generates subtitle from video/audio
-- Auto translate to English
-- 99 language support
-- High accuracy. Easy to use.
-- GPU acceleration
-- CLI mode for batch task
-- One click installer
-- Subtitle preview
-- Youtube video support
+- Automatically generates subtitles from video or audio
+- Automatically translates to English
+- Support for 99 languages
+- High accuracy and easy to use
+- Support GPU acceleration and CLI mode
 
+v2:
+- Includes one-click installer
+- Support video preview
+- Support for Youtube
 
+v2.1:
+- Update to latest gradio
+  - Support time slice for Audio
+  - Support download for Video
+  - More detailed information
+  - User-friendly UX/UI
 
+v3 (WIP):
+- Vocal extractor
+  - Much better performance
+- Voice activity detection
+  - Should fix the issue of subtitle repetition
+
+v3.1 (WIP):
+- Support official batch processing function
+- Support Deepl translation
+
+v4 (WIP):
+- Subtitle edit
 
 <!--
 I made some changes to output the subtitle files, and added a graphical interface.
@@ -63,6 +81,57 @@ If you don't want to read an academic paper, this tool can be summed up in one s
    The most important, it's FREE!
    ```
 -->
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- GETTING STARTED -->
+## Installation (New)
+
+1. Install [Python 3](https://www.python.org/downloads/) and [Git](https://git-scm.com/downloads)
+2. Clone the repo
+   ```sh
+   git clone https://github.com/tomchang25/whisper-auto-transcribe.git
+   cd whisper-auto-transcribe
+   ```
+
+3. Open webui.bat
+
+4. Check for any errors and ensure that the final lines are correct.
+   ```
+   Launching Web UI with arguments: 
+   Running on local URL:  http://127.0.0.1:7860
+   ```
+   
+<!-- GPU acceleration -->
+## (Optional) GPU acceleration (CUDA.11.3)
+
+1. Install [CUDA](https://developer.nvidia.com/cuda-11.3.0-download-archive)
+2. Install [CUDNN](https://developer.nvidia.com/rdp/cudnn-archive)
+3. Unistall CPU version Pytorch
+   ```sh
+   pip uninstall torch torchvision torchaudio
+   ```
+4. Reinstall [GPU version Pytorch](https://pytorch.org/get-started/locally/)
+   ```sh
+   # on Windows
+   python -m pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 torchaudio==0.12.1+cu113 -f https://download.pytorch.org/whl/torch_stable.html
+   ```
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- How to use -->
+## How to use
+  <img src="images/Demo1.png" alt="How to use" width="800" height="450">
+  
+## Command-line interface
+   ```sh
+   # Get help messages
+   python .\cli.py -h
+   
+   # A simple example
+   python .\cli.py .\mp4\1min.mp4 --output .\tmp\123456.srt -lang ja --task translate --model small
+   ```
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -153,68 +222,6 @@ If you don't want to read an academic paper, this tool can be summed up in one s
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
-<!-- GETTING STARTED -->
-## Installation (New)
-
-1. Install [Python 3](https://www.python.org/downloads/)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/tomchang25/whisper-auto-transcribe.git
-   cd whisper-auto-transcribe
-   ```
-
-3. Open webui.bat
-
-4. Check there is no error and last lines are
-   ```
-   Launching Web UI with arguments: 
-   Running on local URL:  http://127.0.0.1:7860
-   ```
-   
-<!-- GPU acceleration -->
-## (Optional) GPU acceleration (CUDA.11.3)
-
-1. Install [CUDA](https://developer.nvidia.com/cuda-11.3.0-download-archive)
-2. Install [CUDNN](https://developer.nvidia.com/rdp/cudnn-archive)
-3. Unistall CPU version Pytorch
-   ```sh
-   pip uninstall torch torchvision torchaudio
-   ```
-4. Reinstall [GPU version Pytorch](https://pytorch.org/get-started/locally/)
-   ```sh
-   # on Windows
-   python -m pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 torchaudio==0.12.1+cu113 -f https://download.pytorch.org/whl/torch_stable.html
-   ```
-   
-<!-- Accompaniment separation -->
-## (Optional) Accompaniment separation (WIP)
-
-1. Install [Zlib](https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html#install-zlib-windows)
-2. Install [Spleeter](https://github.com/deezer/spleeter)
-   ```sh
-   pip install spleeter
-   ```
-
-
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-<!-- How to use -->
-## How to use
-  <img src="images/Demo1.png" alt="How to use" width="800" height="450">
-  
-## Command-line interface
-   ```sh
-   # Get help messages
-   python .\cli.py -h
-   
-   # A simple example
-   python .\cli.py .\mp4\1min.mp4 --output .\tmp\123456.srt -lang ja --task translate --model small
-   ```
-
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 <!-- Limitation -->
 ## Limitation
 
@@ -239,40 +246,16 @@ Here is some recommended value.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- Q & A -->
-<!--
-
-## Q & A
-
-1. Is it better then youtube automatic subtitles?
-   ```
-   Do you really need to ask? Youtube can even fuck up English transcribe.
-   ```
-   
-2. Is it better then Vosk(Subtitle Edit)?
-   ```
-   Definitely.
-   ```
-
-3. Is it better then Trint?
-   ```
-   Trint is terrible at non-English transcribe, and that's whisper advantage.
-   ```
-
-3. Is it better then Sonix.ai?
-   ```
-   Sonix.ai is nearly perfect actually, but hey! you need to pay the bill!
-   ```
-
-<p align="right">(<a href="#top">back to top</a>)</p>
--->
-
 <!-- CONTACT -->
 ## Contact
 
-Greysuki  - tomchang25@gmail.com
+Report Bugs: [https://github.com/tomchang25/whisper-auto-transcribe/issues]
 
 Project Link: [https://github.com/tomchang25/whisper-auto-transcribe](https://github.com/tomchang25/whisper-auto-transcribe)
+
+My twitter: [https://twitter.com/Greysuki]
+
+My Gmail: tomchang25@gmail.com
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -290,6 +273,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 ## Acknowledgments
 
 * [OpenAI-whisper](https://github.com/openai/whisper)
+* [Gradio](https://gradio.app/)
 * [Img Shields](https://shields.io)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
