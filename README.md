@@ -45,14 +45,10 @@ Features:
 - Support for 99 languages
 - High accuracy and easy to use
 - Support GPU acceleration and CLI mode
-
-v2:
 - Includes one-click installer
-- Support video preview
 - Support for Youtube
-
-v2.1:
 - Update to latest gradio
+  - Support video preview
   - Support time slice for Audio
   - Support download for Video
   - More detailed information
