@@ -27,3 +27,6 @@ ffmpeg-python
 more-itertools
 tqdm
 yt_dlp
+pysubs2
+gradio==3.25.1b1
+git+https://github.com/openai/whisper.git

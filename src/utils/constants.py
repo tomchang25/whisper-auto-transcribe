@@ -1,4 +1,3 @@
-
 LANGUAGE_CODES = [
     ("auto", "Auto"),
     ("en", "English"),
@@ -101,3 +100,9 @@ LANGUAGE_CODES = [
     ("jw", "Javanese"),
     ("su", "Sundanese"),
 ]
+
+MODEL_TYPES = ["tiny", "base", "small", "medium", "large"]
+
+TASK_TYPES = ["transcribe", "translate"]
+
+DEVICE_TYPES = ["cpu", "cuda"]
