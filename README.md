@@ -156,7 +156,7 @@ If you don't want to read an academic paper, this tool can be summed up in one s
 <!-- GETTING STARTED -->
 ## Installation (New)
 
-1. Install [Python 3](https://www.python.org/downloads/)
+1. Install [Python 3](https://www.python.org/downloads/) and [Git](https://git-scm.com/downloads)
 2. Clone the repo
    ```sh
    git clone https://github.com/tomchang25/whisper-auto-transcribe.git
@@ -185,17 +185,6 @@ If you don't want to read an academic paper, this tool can be summed up in one s
    # on Windows
    python -m pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 torchaudio==0.12.1+cu113 -f https://download.pytorch.org/whl/torch_stable.html
    ```
-   
-<!-- Accompaniment separation -->
-## (Optional) Accompaniment separation (WIP)
-
-1. Install [Zlib](https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html#install-zlib-windows)
-2. Install [Spleeter](https://github.com/deezer/spleeter)
-   ```sh
-   pip install spleeter
-   ```
-
-
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -239,40 +228,16 @@ Here is some recommended value.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- Q & A -->
-<!--
-
-## Q & A
-
-1. Is it better then youtube automatic subtitles?
-   ```
-   Do you really need to ask? Youtube can even fuck up English transcribe.
-   ```
-   
-2. Is it better then Vosk(Subtitle Edit)?
-   ```
-   Definitely.
-   ```
-
-3. Is it better then Trint?
-   ```
-   Trint is terrible at non-English transcribe, and that's whisper advantage.
-   ```
-
-3. Is it better then Sonix.ai?
-   ```
-   Sonix.ai is nearly perfect actually, but hey! you need to pay the bill!
-   ```
-
-<p align="right">(<a href="#top">back to top</a>)</p>
--->
-
 <!-- CONTACT -->
 ## Contact
 
-Greysuki  - tomchang25@gmail.com
+Report Bugs: [https://github.com/tomchang25/whisper-auto-transcribe/issues]
 
 Project Link: [https://github.com/tomchang25/whisper-auto-transcribe](https://github.com/tomchang25/whisper-auto-transcribe)
+
+My twitter: [https://twitter.com/Greysuki]
+
+My Gmail: tomchang25@gmail.com
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -290,6 +255,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 ## Acknowledgments
 
 * [OpenAI-whisper](https://github.com/openai/whisper)
+* [Gradio](https://gradio.app/)
 * [Img Shields](https://shields.io)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
