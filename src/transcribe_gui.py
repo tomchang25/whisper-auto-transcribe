@@ -113,17 +113,17 @@ def create_setting_tab():
         with gr.Row():
             with gr.Column():
                 vocal_extracter_checkbox = gr.Checkbox(
-                    value=False,
+                    value=True,
                     label="Vocal extracter",
                     info="Mute non-vaocal background music",
-                    interactive=False,
+                    interactive=True,
                 )
 
                 vad_checkbox = gr.Checkbox(
-                    value=False,
+                    value=True,
                     label="Voice activity detection",
                     info="Should fix the issue of subtitle repetition",
-                    interactive=False,
+                    interactive=True,
                 )
 
     with gr.Box():
@@ -269,9 +269,10 @@ def create_transcribe_tab():
                 task_type,
             ):
                 # Perform subtitle transcription
+                subtitle_filename = subtitle_filename.strip()
                 subtitle_file_path = task.transcribe(
                     file_name,
-                    subtitle=None if subtitle_filename == "" else subtitle_filename,
+                    subtitle=(None if subtitle_filename == "" else subtitle_filename),
                     vocal_extracter=vocal_extracter_checkbox,
                     vad=vad_checkbox,
                     language=LANGUAGE_CODES[language_input][0],
@@ -303,6 +304,6 @@ def create_transcribe_tab():
     return demo
 
 
+demo = create_transcribe_tab()
 if __name__ == "__main__":
-    demo = create_transcribe_tab()
     demo.launch()

@@ -5,29 +5,16 @@ import sys
 import importlib.util
 import shlex
 
-# dir_repos = "repositories"
-dir_tmp = "tmp"
-
 python = sys.executable
 git = os.environ.get("GIT", "git")
 torch_command = os.environ.get(
     "TORCH_COMMAND",
-    # "pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 --extra-index-url https://download.pytorch.org/whl/cu113",
     "pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 torchaudio==0.12.1+cu113 -f https://download.pytorch.org/whl/torch_stable.html",
 )
 
-# requirements_file = os.environ.get("REQS_FILE", "requirements_versions.txt")
+
 requirements_file = os.environ.get("REQS_FILE", "requirements.txt")
 commandline_args = os.environ.get("COMMANDLINE_ARGS", "")
-
-custom_gradio_commit_hash = os.environ.get(
-    "CUSTOM_GRADIO_COMMIT_HASH", "a852b74bc71448b6fa4c93cf01d29443a1ca24bf"
-)
-
-custom_gradio_templates_commit_hash = os.environ.get(
-    "CUSTOM_GRADIO_TEMPLATES_COMMIT_HASH", "e1f7151e7ee44dfc28257fd3159330a8573c754e"
-)
-
 
 args = shlex.split(commandline_args)
 
@@ -37,11 +24,6 @@ def extract_arg(args, name):
 
 
 args, skip_torch_cuda_test = extract_arg(args, "--skip-torch-cuda-test")
-xformers = "--xformers" in args
-
-
-# def repo_dir(name):
-#     return os.path.join(dir_repos, name)
 
 
 def run(command, desc=None, errdesc=None, cwd=None):
@@ -154,39 +136,6 @@ if not is_installed("torch") or not is_installed("torchvision"):
     )
 else:
     print("Check torch and torchvision")
-
-# os.makedirs(dir_repos, exist_ok=True)
-
-# if not is_installed("gradio"):
-#     git_clone(
-#         "https://github.com/tomchang25/gradio.git",
-#         repo_dir("gradio"),
-#         "Custom Gradio",
-#         custom_gradio_commit_hash,
-#     )
-
-#     run_pip(f"install {dir_repos}/gradio", "gradio")
-
-#     git_clone(
-#         "https://github.com/tomchang25/gradio-templates.git",
-#         repo_dir("gradio-templates"),
-#         "Custom Gradio templates",
-#         custom_gradio_templates_commit_hash,
-#     )
-
-#     run(
-#         rf"xcopy {dir_repos}\gradio-templates\templates venv\Lib\site-packages\gradio\templates\ /e/y/i",
-#         "Building gardio front",
-#         "Couldn't build gardio front",
-#     )
-# else:
-#     print("Check gradio")
-
-
-# if not is_installed("whisper"):
-#     run_pip("install git+https://github.com/openai/whisper.git ", "whisper")
-# else:
-#     print("Check whisper")
 
 
 run_pip(f"install -r {requirements_file}", "requirements for Web UI")

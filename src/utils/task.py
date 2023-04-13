@@ -64,8 +64,17 @@ def transcribe(
         model_type += ".en"
 
     # Data preprocess
-    vocal_extracter
-    vad
+    if vocal_extracter:
+        demucs_directory = Path(subtitle_path).with_suffix("").name
+
+        cmd = rf"demucs --two-stems=vocals {media} -o ./tmp/{demucs_directory}/ --filename {{stem}}.{{ext}}"
+
+        try:
+            subprocess.run(cmd, check=True)
+        except:
+            raise Exception(f"Error. Vocal extracter unavailable. Received: {cmd}")
+
+        media = f"./tmp/{demucs_directory}/htdemucs/vocals.wav"
 
     # Whisper transcribe
     print("Debug: ", media, subtitle_path, model_type, language, task, device)
@@ -73,7 +82,7 @@ def transcribe(
     whisper_model = whisper.load_model(model_type, device=device)
 
     result = whisper_model.transcribe(
-        media, language=language, task=task, verbose=False
+        media, language=language, task=task, vad=vad, verbose=False
     )
 
     write_srt(result["segments"], subtitle_path)
@@ -84,9 +93,3 @@ def transcribe(
     torch.cuda.empty_cache()
 
     return subtitle_path
-
-
-# # %%
-# from pathlib import Path
-#
-# Path("tmp\\A\\B\\C\\DDD.srt").parent.mkdir(parents=True, exist_ok=True)
