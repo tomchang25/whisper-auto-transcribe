@@ -40,18 +40,36 @@ For more details, you can check [this](https://cdn.openai.com/papers/whisper.pdf
 
 Features:
 
-- Auto generates subtitle from video/audio
-- Auto translate to English
-- 99 language support
-- High accuracy. Easy to use.
-- GPU acceleration
-- CLI mode for batch task
-- One click installer
-- Subtitle preview
-- Youtube video support
+- Automatically generates subtitles from video or audio
+- Automatically translates to English
+- Support for 99 languages
+- High accuracy and easy to use
+- Support GPU acceleration and CLI mode
 
+v2:
+- Includes one-click installer
+- Support video preview
+- Support for Youtube
 
+v2.1:
+- Update to latest gradio
+  - Support time slice for Audio
+  - Support download for Video
+  - More detailed information
+  - User-friendly UX/UI
 
+v3 (WIP):
+- Vocal extractor
+  - Much better performance
+- Voice activity detection
+  - Should fix the issue of subtitle repetition
+
+v3.1 (WIP):
+- Support official batch processing function
+- Support Deepl translation
+
+v4 (WIP):
+- Subtitle edit
 
 <!--
 I made some changes to output the subtitle files, and added a graphical interface.
