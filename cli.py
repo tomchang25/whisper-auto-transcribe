@@ -1,9 +1,8 @@
 import argparse
-from task import easy_task
+from src.utils.task import transcribe
 
 
 def cli():
-
     parser = argparse.ArgumentParser(description="Whisper Auto Transcribe")
 
     parser.add_argument("input", metavar="input", type=str, help="Input video file")
@@ -35,36 +34,38 @@ def cli():
         "--device",
         metavar="device",
         type=str,
-        help="Use device. [auto, cpu, cuda] Default [auto].",
+        help="Use device. [cpu, cuda] Default [cuda].",
         required=False,
-        default="auto",
+        default="cuda",
     )
 
     parser.add_argument(
         "--model",
         metavar="model",
         type=str,
-        help="Use model. [tiny, base, small, medium, large] Default [base].",
+        help="Use model. [tiny, base, small, medium, large] Default [medium].",
         required=False,
-        default="base",
+        default="medium",
     )
 
     args = parser.parse_args()
-    res, used_time = easy_task(
-        model_type=args.model,
-        file_path=args.input,
+    subtitle_path = transcribe(
+        args.input,
+        subtitle=args.output,
         language=args.language,
-        task=args.task,
-        output_path=args.output,
+        model_type=args.model,
         device=args.device,
+        task=args.task,
     )
 
     print(
-        ("[{used_time:.3f}] take, {task} file is found at [{file_path}].\n").format(
-            used_time=used_time, file_path=res, task=args.task
+        ("[{task} file is found at [{subtitle_path}].\n").format(
+            task=args.task, subtitle_path=subtitle_path
         )
     )
 
+
+# python cli.py mp4/1min.mp4 --output out/final.srt --model large
 
 if __name__ == "__main__":
     cli()

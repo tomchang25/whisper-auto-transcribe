@@ -4,9 +4,8 @@ import os
 import sys
 import importlib.util
 import shlex
-import platform
 
-dir_repos = "repositories"
+# dir_repos = "repositories"
 dir_tmp = "tmp"
 
 python = sys.executable
@@ -16,18 +15,10 @@ torch_command = os.environ.get(
     # "pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 --extra-index-url https://download.pytorch.org/whl/cu113",
     "pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 torchaudio==0.12.1+cu113 -f https://download.pytorch.org/whl/torch_stable.html",
 )
+
 # requirements_file = os.environ.get("REQS_FILE", "requirements_versions.txt")
 requirements_file = os.environ.get("REQS_FILE", "requirements.txt")
 commandline_args = os.environ.get("COMMANDLINE_ARGS", "")
-
-gfpgan_package = os.environ.get(
-    "GFPGAN_PACKAGE",
-    "git+https://github.com/TencentARC/GFPGAN.git@8d2447a2d918f8eba5a4a01463fd48e45126a379",
-)
-clip_package = os.environ.get(
-    "CLIP_PACKAGE",
-    "git+https://github.com/openai/CLIP.git@d50d76daa670286dd6cacf3bcd80b5e4823fc8e1",
-)
 
 custom_gradio_commit_hash = os.environ.get(
     "CUSTOM_GRADIO_COMMIT_HASH", "a852b74bc71448b6fa4c93cf01d29443a1ca24bf"
@@ -37,21 +28,6 @@ custom_gradio_templates_commit_hash = os.environ.get(
     "CUSTOM_GRADIO_TEMPLATES_COMMIT_HASH", "e1f7151e7ee44dfc28257fd3159330a8573c754e"
 )
 
-stable_diffusion_commit_hash = os.environ.get(
-    "STABLE_DIFFUSION_COMMIT_HASH", "69ae4b35e0a0f6ee1af8bb9a5d0016ccb27e36dc"
-)
-taming_transformers_commit_hash = os.environ.get(
-    "TAMING_TRANSFORMERS_COMMIT_HASH", "24268930bf1dce879235a7fddd0b2355b84d7ea6"
-)
-k_diffusion_commit_hash = os.environ.get(
-    "K_DIFFUSION_COMMIT_HASH", "f4e99857772fc3a126ba886aadf795a332774878"
-)
-codeformer_commit_hash = os.environ.get(
-    "CODEFORMER_COMMIT_HASH", "c5b4593074ba6214284d6acd5f1719b6c5d739af"
-)
-blip_commit_hash = os.environ.get(
-    "BLIP_COMMIT_HASH", "48211a1594f1321b00f14c9f7a5b4813144b2fb9"
-)
 
 args = shlex.split(commandline_args)
 
@@ -64,8 +40,8 @@ args, skip_torch_cuda_test = extract_arg(args, "--skip-torch-cuda-test")
 xformers = "--xformers" in args
 
 
-def repo_dir(name):
-    return os.path.join(dir_repos, name)
+# def repo_dir(name):
+#     return os.path.join(dir_repos, name)
 
 
 def run(command, desc=None, errdesc=None, cwd=None):
@@ -77,7 +53,6 @@ def run(command, desc=None, errdesc=None, cwd=None):
     )
 
     if result.returncode != 0:
-
         message = f"""{errdesc or 'Error running command'}.
 Command: {command}
 Error code: {result.returncode}
@@ -180,90 +155,39 @@ if not is_installed("torch") or not is_installed("torchvision"):
 else:
     print("Check torch and torchvision")
 
-# if not skip_torch_cuda_test:
-#     run_python(
-#         "import torch; assert torch.cuda.is_available(), 'Torch is not able to use GPU; add --skip-torch-cuda-test to COMMANDLINE_ARGS variable to disable this check'"
+# os.makedirs(dir_repos, exist_ok=True)
+
+# if not is_installed("gradio"):
+#     git_clone(
+#         "https://github.com/tomchang25/gradio.git",
+#         repo_dir("gradio"),
+#         "Custom Gradio",
+#         custom_gradio_commit_hash,
 #     )
 
-# if not is_installed("gfpgan"):
-#     run_pip(f"install {gfpgan_package}", "gfpgan")
+#     run_pip(f"install {dir_repos}/gradio", "gradio")
 
-# if not is_installed("clip"):
-#     run_pip(f"install {clip_package}", "clip")
-
-# if (
-#     not is_installed("xformers")
-#     and xformers
-#     and platform.python_version().startswith("3.10")
-# ):
-#     if platform.system() == "Windows":
-#         run_pip(
-#             "install https://github.com/C43H66N12O12S2/stable-diffusion-webui/releases/download/a/xformers-0.0.14.dev0-cp310-cp310-win_amd64.whl",
-#             "xformers",
-#         )
-#     elif platform.system() == "Linux":
-#         run_pip("install xformers", "xformers")
-
-os.makedirs(dir_repos, exist_ok=True)
-
-if not is_installed("gradio"):
-    git_clone(
-        "https://github.com/tomchang25/gradio.git",
-        repo_dir("gradio"),
-        "Custom Gradio",
-        custom_gradio_commit_hash,
-    )
-
-    run_pip(f"install {dir_repos}/gradio", "gradio")
-
-    git_clone(
-        "https://github.com/tomchang25/gradio-templates.git",
-        repo_dir("gradio-templates"),
-        "Custom Gradio templates",
-        custom_gradio_templates_commit_hash,
-    )
-
-    run(
-        rf"xcopy {dir_repos}\gradio-templates\templates venv\Lib\site-packages\gradio\templates\ /e/y/i",
-        "Building gardio front",
-        "Couldn't build gardio front",
-    )
-
-    # run(
-    #     "pnpm i",
-    #     "Install gardio front",
-    #     "Couldn't install gardio front",
-    #     f"{dir_repos}/gradio/ui",
-    # )
-
-    # run(
-    #     "pnpm build",
-    #     "building gardio front",
-    #     "Couldn't build gardio front",
-    #     f"{dir_repos}/gradio/ui",
-    # )
-else:
-    print("Check gradio")
-
-
-if not is_installed("whisper"):
-    run_pip("install git+https://github.com/openai/whisper.git ", "whisper")
-else:
-    print("Check whisper")
-
-
-# git_clone(
-#     "https://github.com/CompVis/stable-diffusion.git",
-#     repo_dir("stable-diffusion"),
-#     "Stable Diffusion",
-#     stable_diffusion_commit_hash,
-# )
-
-# if not is_installed("lpips"):
-#     run_pip(
-#         f"install -r {os.path.join(repo_dir('CodeFormer'), 'requirements.txt')}",
-#         "requirements for CodeFormer",
+#     git_clone(
+#         "https://github.com/tomchang25/gradio-templates.git",
+#         repo_dir("gradio-templates"),
+#         "Custom Gradio templates",
+#         custom_gradio_templates_commit_hash,
 #     )
+
+#     run(
+#         rf"xcopy {dir_repos}\gradio-templates\templates venv\Lib\site-packages\gradio\templates\ /e/y/i",
+#         "Building gardio front",
+#         "Couldn't build gardio front",
+#     )
+# else:
+#     print("Check gradio")
+
+
+# if not is_installed("whisper"):
+#     run_pip("install git+https://github.com/openai/whisper.git ", "whisper")
+# else:
+#     print("Check whisper")
+
 
 run_pip(f"install -r {requirements_file}", "requirements for Web UI")
 
