@@ -187,7 +187,7 @@ def create_setting_tab():
 
 
 def create_result_tab():
-    subtitle_file_path = gr.State()
+    subtitle_file_path = gr.Textbox(visible=False)
     with gr.Box():
         with gr.Column():
             video_demo = gr.Video(
