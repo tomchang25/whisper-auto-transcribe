@@ -200,9 +200,9 @@ if "--exit" in args:
 
 def start_webui():
     print(f"Launching Web UI with arguments: {' '.join(sys.argv[1:])}")
-    import gui
+    from gui import gui
 
-    gui.launch()
+    gui().launch()
 
 
 if __name__ == "__main__":

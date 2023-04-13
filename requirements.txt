@@ -26,7 +26,9 @@ transformers
 ffmpeg-python
 more-itertools
 tqdm
+decorator
 yt_dlp
 pysubs2
 gradio==3.25.1b1
 git+https://github.com/openai/whisper.git
+git+https://github.com/linto-ai/whisper-timestamped
