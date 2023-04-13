@@ -66,6 +66,57 @@ If you don't want to read an academic paper, this tool can be summed up in one s
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+<!-- GETTING STARTED -->
+## Installation (New)
+
+1. Install [Python 3](https://www.python.org/downloads/) and [Git](https://git-scm.com/downloads)
+2. Clone the repo
+   ```sh
+   git clone https://github.com/tomchang25/whisper-auto-transcribe.git
+   cd whisper-auto-transcribe
+   ```
+
+3. Open webui.bat
+
+4. Check there is no error and last lines are
+   ```
+   Launching Web UI with arguments: 
+   Running on local URL:  http://127.0.0.1:7860
+   ```
+   
+<!-- GPU acceleration -->
+## (Optional) GPU acceleration (CUDA.11.3)
+
+1. Install [CUDA](https://developer.nvidia.com/cuda-11.3.0-download-archive)
+2. Install [CUDNN](https://developer.nvidia.com/rdp/cudnn-archive)
+3. Unistall CPU version Pytorch
+   ```sh
+   pip uninstall torch torchvision torchaudio
+   ```
+4. Reinstall [GPU version Pytorch](https://pytorch.org/get-started/locally/)
+   ```sh
+   # on Windows
+   python -m pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 torchaudio==0.12.1+cu113 -f https://download.pytorch.org/whl/torch_stable.html
+   ```
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- How to use -->
+## How to use
+  <img src="images/Demo1.png" alt="How to use" width="800" height="450">
+  
+## Command-line interface
+   ```sh
+   # Get help messages
+   python .\cli.py -h
+   
+   # A simple example
+   python .\cli.py .\mp4\1min.mp4 --output .\tmp\123456.srt -lang ja --task translate --model small
+   ```
+
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 <!-- Demo -->
 ## Demo
 <div align="center">
@@ -152,57 +203,6 @@ If you don't want to read an academic paper, this tool can be summed up in one s
    
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-<!-- GETTING STARTED -->
-## Installation (New)
-
-1. Install [Python 3](https://www.python.org/downloads/) and [Git](https://git-scm.com/downloads)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/tomchang25/whisper-auto-transcribe.git
-   cd whisper-auto-transcribe
-   ```
-
-3. Open webui.bat
-
-4. Check there is no error and last lines are
-   ```
-   Launching Web UI with arguments: 
-   Running on local URL:  http://127.0.0.1:7860
-   ```
-   
-<!-- GPU acceleration -->
-## (Optional) GPU acceleration (CUDA.11.3)
-
-1. Install [CUDA](https://developer.nvidia.com/cuda-11.3.0-download-archive)
-2. Install [CUDNN](https://developer.nvidia.com/rdp/cudnn-archive)
-3. Unistall CPU version Pytorch
-   ```sh
-   pip uninstall torch torchvision torchaudio
-   ```
-4. Reinstall [GPU version Pytorch](https://pytorch.org/get-started/locally/)
-   ```sh
-   # on Windows
-   python -m pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 torchaudio==0.12.1+cu113 -f https://download.pytorch.org/whl/torch_stable.html
-   ```
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-<!-- How to use -->
-## How to use
-  <img src="images/Demo1.png" alt="How to use" width="800" height="450">
-  
-## Command-line interface
-   ```sh
-   # Get help messages
-   python .\cli.py -h
-   
-   # A simple example
-   python .\cli.py .\mp4\1min.mp4 --output .\tmp\123456.srt -lang ja --task translate --model small
-   ```
-
-
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- Limitation -->
 ## Limitation
