@@ -4,6 +4,7 @@ build/
 dist/
 dist_onefile/
 flagged/
+
 venv/
 
 test/
@@ -12,15 +13,10 @@ mp4/
 out/
 wav/
 tmp/
-
-repositories/
+project/
 
 __pycache__/
 pretrained_models/
-project/
-
-gui.spec
-Demo.mp4
 
 *.srt
 
