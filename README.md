@@ -78,7 +78,7 @@ If you don't want to read an academic paper, this tool can be summed up in one s
 
 3. Open webui.bat
 
-4. Check there is no error and last lines are
+4. Check for any errors and ensure that the final lines are correct.
    ```
    Launching Web UI with arguments: 
    Running on local URL:  http://127.0.0.1:7860
