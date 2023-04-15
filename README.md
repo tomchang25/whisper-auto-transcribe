@@ -218,7 +218,6 @@ For more details, you can check [this](https://cdn.openai.com/papers/whisper.pdf
 Currently, there are several restrictions on this project.
 
 1. GPU acceleration only works on CUDA environment.
-2. File time should not exceed 30 min, because of the performance problem.
 
 Also, if you want to use GPU acceleration, please make sure you have enough GPU VRAM.
 Here is some recommended value.
@@ -232,18 +231,18 @@ Here is some recommended value.
 |     4     |      `medium`      |     ~5 GB     |      ~1/5      |       -        |
 |     5     |      `large`       |    ~10 GB     |      ~1/2      |    ~Sonix.ai   |
 
-*Time used is relatived to video/audio time and test in 7 min Enlgish audio with GPU acceleration.
+*Time used is relatived to video/audio time and test in 10 min Enlgish audio with GPU acceleration.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- CONTACT -->
 ## Contact
 
-Report Bugs: [https://github.com/tomchang25/whisper-auto-transcribe/issues]
+Report Bugs: https://github.com/tomchang25/whisper-auto-transcribe/issues
 
-Project Link: [https://github.com/tomchang25/whisper-auto-transcribe](https://github.com/tomchang25/whisper-auto-transcribe)
+Project Link: https://github.com/tomchang25/whisper-auto-transcribe
 
-My twitter: [https://twitter.com/Greysuki]
+My twitter: https://twitter.com/Greysuki
 
 My Gmail: tomchang25@gmail.com
 
@@ -254,7 +253,8 @@ My Gmail: tomchang25@gmail.com
 ## License
 
 The code and the model weights of Whisper are released under the MIT License. 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+
+This project is distributed under the MIT License. Please refer to `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -264,6 +264,8 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 * [OpenAI-whisper](https://github.com/openai/whisper)
 * [Gradio](https://gradio.app/)
+* [Demucs](https://github.com/facebookresearch/demucs)
+* [whisper-timestamped](https://github.com/linto-ai/whisper-timestamped)
 * [Img Shields](https://shields.io)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
