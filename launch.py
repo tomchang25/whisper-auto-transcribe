@@ -166,11 +166,11 @@ def repo_dir(name):
 
 
 custom_gradio_commit_hash = os.environ.get(
-    "CUSTOM_GRADIO_COMMIT_HASH", "a852b74bc71448b6fa4c93cf01d29443a1ca24bf"
+    "CUSTOM_GRADIO_COMMIT_HASH", "5ede976cea66be676798df26fa126ada5c40844c"
 )
 
 custom_gradio_templates_commit_hash = os.environ.get(
-    "CUSTOM_GRADIO_TEMPLATES_COMMIT_HASH", "e1f7151e7ee44dfc28257fd3159330a8573c754e"
+    "CUSTOM_GRADIO_TEMPLATES_COMMIT_HASH", "b8114f1c7e74ce5a024d1e92f40574e7a6cce0c8"
 )
 
 
