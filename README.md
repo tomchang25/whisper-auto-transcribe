@@ -44,6 +44,7 @@
 ### Unique feature:
 
 - Includes a one-click installer
+- Increased time precision from 1 to 0.01 seconds
 - Supports Youtube integration
 - Preview subtitles in video
 - Provides support for Background Music Mute, works fine even during rock live performances
