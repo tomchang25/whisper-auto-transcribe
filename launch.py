@@ -6,8 +6,6 @@ import shlex
 import subprocess
 import sys
 
-from packaging import version
-
 python = sys.executable
 git = os.environ.get("GIT", "git")
 torch_command = os.environ.get(
@@ -72,27 +70,27 @@ def check_run_python(code):
     return check_run(f'"{python}" -c "{code}"')
 
 
-# def is_installed(package):
-#     try:
-#         spec = importlib.util.find_spec(package)
-#     except ModuleNotFoundError:
-#         return False
-
-#     return spec is not None
-
-
-def is_installed(package, version=None):
+def is_installed(package):
     try:
-        module = importlib.import_module(package)
-        if version is not None:
-            module_version = version.parse(module.__version__)
-            required_version = version.parse(version)
-            if module_version < required_version:
-                return False
-    except ImportError:
+        spec = importlib.util.find_spec(package)
+    except ModuleNotFoundError:
         return False
 
-    return True
+    return spec is not None
+
+
+# def is_installed(package, version=None):
+#     try:
+#         module = importlib.import_module(package)
+#         if version is not None:
+#             module_version = version.parse(module.__version__)
+#             required_version = version.parse(version)
+#             if module_version < required_version:
+#                 return False
+#     except ImportError:
+#         return False
+
+#     return True
 
 
 def git_clone(url, dir, name, commithash=None):
@@ -176,7 +174,7 @@ custom_gradio_templates_commit_hash = os.environ.get(
 )
 
 
-if not is_installed("gradio", "3.26.0"):
+if not is_installed("gradio"):
     git_clone(
         "https://github.com/tomchang25/gradio.git",
         repo_dir("gradio"),
