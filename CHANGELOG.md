@@ -28,6 +28,41 @@ No changes to highlight.
 
 No changes to highlight.
 
+# Version 0.2.1
+
+## New Features:
+
+-Update to latest gradio
+ -Support official video preview
+ -Support time slice for Audio
+ -Support download for Video
+-More detailed information
+-User-friendly UX/UI
+
+## Bug Fixes:
+
+No changes to highlight.
+
+## Documentation Changes:
+
+No changes to highlight.
+
+## Testing and Infrastructure Changes:
+
+No changes to highlight.
+
+## Breaking Changes:
+
+No changes to highlight.
+
+## Full Changelog:
+
+No changes to highlight.
+
+## Contributors Shoutout:
+
+No changes to highlight.
+
 # Version 0.2.0
 
 ## New Features:
