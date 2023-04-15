@@ -47,7 +47,7 @@
 - Increased time precision from 1 to 0.01 seconds
 - Supports Youtube integration
 - Preview subtitles in video
-- Provides support for Background Music Mute, works fine even during rock live performances
+- Provides support for Background Music Mute, works fine even during heavy metal live performances
 - Supports long files, 3-hour files have been tested
 - Resolves the issue of subtitle repetition
 
