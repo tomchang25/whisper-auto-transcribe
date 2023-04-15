@@ -10,14 +10,14 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <h3 align="center">Whisper Auto Transcribe</h3>
-  
+  <h3 align="center">Easily generate free subtitles for your video</h3>
+      
+
   <a href="https://github.com/tomchang25/whisper-auto-transcribe">
     <img src="images/logo.png" alt="Logo" width="400" height="400">
   </a>
 
   <p align="center">
-    The most efficient subtitle solution.
     <br />
     <a href="https://github.com/tomchang25/whisper-auto-transcribe#Demo">View Demo</a>
     ·
