@@ -47,14 +47,7 @@ Features:
 - Support GPU acceleration and CLI mode
 - Includes one-click installer
 - Support for Youtube
-- Update to latest gradio
-  - Support video preview
-  - Support time slice for Audio
-  - Support download for Video
-  - More detailed information
-  - User-friendly UX/UI
-
-v3 (WIP):
+- Support all features in latest gradio
 - Vocal extractor
   - Much better performance
 - Voice activity detection
