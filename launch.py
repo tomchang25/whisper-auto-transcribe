@@ -1,9 +1,12 @@
 # this scripts installs necessary requirements and launches main program in webui.py
-import subprocess
-import os
-import sys
+import importlib
 import importlib.util
+import os
 import shlex
+import subprocess
+import sys
+
+from packaging import version
 
 python = sys.executable
 git = os.environ.get("GIT", "git")
@@ -69,13 +72,27 @@ def check_run_python(code):
     return check_run(f'"{python}" -c "{code}"')
 
 
-def is_installed(package):
+# def is_installed(package):
+#     try:
+#         spec = importlib.util.find_spec(package)
+#     except ModuleNotFoundError:
+#         return False
+
+#     return spec is not None
+
+
+def is_installed(package, version=None):
     try:
-        spec = importlib.util.find_spec(package)
-    except ModuleNotFoundError:
+        module = importlib.import_module(package)
+        if version is not None:
+            module_version = version.parse(module.__version__)
+            required_version = version.parse(version)
+            if module_version < required_version:
+                return False
+    except ImportError:
         return False
 
-    return spec is not None
+    return True
 
 
 def git_clone(url, dir, name, commithash=None):
@@ -139,6 +156,50 @@ else:
 
 
 run_pip(f"install -r {requirements_file}", "requirements for Web UI")
+
+
+# Only for pre-release
+dir_repos = "repositories"
+os.makedirs(dir_repos, exist_ok=True)
+
+
+def repo_dir(name):
+    return os.path.join(dir_repos, name)
+
+
+custom_gradio_commit_hash = os.environ.get(
+    "CUSTOM_GRADIO_COMMIT_HASH", "a852b74bc71448b6fa4c93cf01d29443a1ca24bf"
+)
+
+custom_gradio_templates_commit_hash = os.environ.get(
+    "CUSTOM_GRADIO_TEMPLATES_COMMIT_HASH", "e1f7151e7ee44dfc28257fd3159330a8573c754e"
+)
+
+
+if not is_installed("gradio"):
+    git_clone(
+        "https://github.com/tomchang25/gradio.git",
+        repo_dir("gradio"),
+        "Custom Gradio",
+        custom_gradio_commit_hash,
+    )
+
+    run_pip(f"install {dir_repos}/gradio", "gradio")
+
+    git_clone(
+        "https://github.com/tomchang25/gradio-templates.git",
+        repo_dir("gradio-templates"),
+        "Custom Gradio templates",
+        custom_gradio_templates_commit_hash,
+    )
+
+    run(
+        rf"xcopy {dir_repos}\gradio-templates\templates venv\Lib\site-packages\gradio\templates\ /e/y/i",
+        "Building gardio front",
+        "Couldn't build gardio front",
+    )
+else:
+    print("Check gradio")
 
 sys.argv += args
 
