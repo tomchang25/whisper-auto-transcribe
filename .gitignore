@@ -19,7 +19,7 @@ repositories/
 __pycache__/
 pretrained_models/
 
-*.srt
+# *.srt
 
 main.py
 pb_test.py
