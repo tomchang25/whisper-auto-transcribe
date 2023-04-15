@@ -34,15 +34,14 @@ def create_source_tab():
                     download_btn = gr.Button(value="Import video")
 
                     with gr.Row():
-                        gr.Column(scale=0.25)
-                        with gr.Column(scale=0.5):
+                        gr.Column(scale=0.2)
+                        with gr.Column(scale=0.6):
                             video_input = gr.Video(
                                 label="Video File",
                                 interactive=True,
                                 mirror_webcam=False,
                             )
 
-                            gr.File()
             with gr.Box(visible=False) as audio_tab:
                 with gr.Column():
                     audio_input = gr.Audio(

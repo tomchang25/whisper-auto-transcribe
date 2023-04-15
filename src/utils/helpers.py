@@ -8,7 +8,6 @@ import decorator
 import ffmpeg
 
 
-
 # copy from whisper
 # -----------------
 def format_timestamp(seconds: float, always_include_hours: bool = False):
@@ -113,3 +112,12 @@ def convert_path_to_string(varnames):
 @convert_path_to_string(("inputfile", "outputfile"))
 def ffmpeg_extract_audio(inputfile, outputfile):
     ffmpeg.input(inputfile).output(outputfile, format="wav").run()
+
+
+def clean_filepath(filepath):
+    # Use str.maketrans() and str.translate() to remove disallowed characters
+    disallowed = "@#$%^&*()_-+={}[]|\:;'<>,.?/~"
+    translation_table = str.maketrans("", "", disallowed)
+    clean_filepath = filepath.translate(translation_table)
+
+    return clean_filepath

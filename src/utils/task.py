@@ -3,10 +3,10 @@ import subprocess
 from pathlib import Path
 
 import torch
-import whisper_timestamped as whisper
+import whisper_timestamped
 
 from src.utils.constants import DEVICE_TYPES, LANGUAGE_CODES, MODEL_TYPES, TASK_TYPES
-from src.utils.helpers import write_srt
+from src.utils.helpers import write_srt, clean_filepath
 
 
 def transcribe(
@@ -26,10 +26,15 @@ def transcribe(
     if subtitle is None:
         subtitle_path = "tmp/{}".format(Path(media).with_suffix(".srt").name)
     else:
-        subtitle_path = Path(subtitle).with_suffix(".srt")
+        # Use str.maketrans() and str.translate() to remove disallowed characters
+        clean_subtitle = clean_filepath(subtitle)
+
+        subtitle_path = Path(clean_subtitle).with_suffix(".srt")
+
         Path(subtitle_path).parent.mkdir(parents=True, exist_ok=True)
 
-        if str(Path(subtitle).parent) == ".":
+        print(str(Path(subtitle_path).parent))
+        if str(Path(subtitle_path).parent) == ".":
             subtitle_path = f"tmp/{subtitle_path}"
 
     if language == "auto":
@@ -67,7 +72,8 @@ def transcribe(
     if vocal_extracter:
         demucs_directory = Path(subtitle_path).with_suffix("").name
 
-        cmd = rf"demucs --two-stems=vocals {media} -o ./tmp/{demucs_directory}/ --filename {{stem}}.{{ext}}"
+        # "demucs --two-stems=vocals mp4/1min.mp4 -o tmp/ --filename {track}/{stem}.{ext}"" # FileName/VOCAL.wav
+        cmd = rf'demucs --two-stems=vocals "{media}" -o "./tmp/{demucs_directory}/" --filename {{stem}}.{{ext}}'
 
         try:
             subprocess.run(cmd, check=True)
@@ -81,10 +87,15 @@ def transcribe(
     # Whisper transcribe
     print("Debug: ", media, subtitle_path, model_type, language, task, device)
 
-    whisper_model = whisper.load_model(model_type, device=device)
+    whisper_model = whisper_timestamped.load_model(model_type, device=device)
 
-    result = whisper_model.transcribe(
-        media, language=language, task=task, vad=vad, verbose=False
+    result = whisper_timestamped.transcribe(
+        model=whisper_model,
+        audio=media,
+        language=language,
+        task=task,
+        vad=vad,
+        verbose=False,
     )
 
     write_srt(result["segments"], subtitle_path)
