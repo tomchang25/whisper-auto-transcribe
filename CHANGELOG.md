@@ -31,6 +31,69 @@ No changes to highlight.
 
 No changes to highlight.
 
+# Version 0.3.0
+
+## New Features:
+
+- Vocal extractor
+  - Much better performance
+- Voice activity detection
+  - Should fix the issue of subtitle repetition
+
+## Bug Fixes:
+
+No changes to highlight.
+
+## Documentation Changes:
+
+No changes to highlight.
+
+## Testing and Infrastructure Changes:
+
+No changes to highlight.
+
+## Breaking Changes:
+
+No changes to highlight.
+
+## Full Changelog:
+
+No changes to highlight.
+
+## Contributors Shoutout:
+
+No changes to highlight.
+
+# Version 0.2.2
+
+## New Features:
+
+No changes to highlight.
+
+## Bug Fixes:
+
+- remove miss upload module
+
+## Documentation Changes:
+
+No changes to highlight.
+
+## Testing and Infrastructure Changes:
+
+No changes to highlight.
+
+## Breaking Changes:
+
+No changes to highlight.
+
+## Full Changelog:
+
+No changes to highlight.
+
+## Contributors Shoutout:
+
+No changes to highlight.
+
 # Version 0.2.1
 
 ## New Features:
