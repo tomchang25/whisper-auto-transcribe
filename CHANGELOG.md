@@ -2,7 +2,10 @@
 
 ## New Features:
 
-No changes to highlight.
+- Vocal extractor
+  - Much better performance
+- Voice activity detection
+  - Should fix the issue of subtitle repetition
 
 ## Bug Fixes:
 
@@ -32,12 +35,12 @@ No changes to highlight.
 
 ## New Features:
 
--Update to latest gradio
- -Support official video preview
- -Support time slice for Audio
- -Support download for Video
--More detailed information
--User-friendly UX/UI
+- Update to latest gradio
+  - Support official video preview
+  - Support time slice for Audio
+  - Support download for Video
+- More detailed information
+- User-friendly UX/UI
 
 ## Bug Fixes:
 
