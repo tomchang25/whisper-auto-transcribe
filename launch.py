@@ -93,47 +93,6 @@ def is_installed(package):
 #     return True
 
 
-def git_clone(url, dir, name, commithash=None):
-    # TODO clone into temporary dir and move if successful
-
-    if os.path.exists(dir):
-        if commithash is None:
-            return
-
-        current_hash = run(
-            f'"{git}" -C {dir} rev-parse HEAD',
-            None,
-            f"Couldn't determine {name}'s hash: {commithash}",
-        ).strip()
-        if current_hash == commithash:
-            return
-
-        run(
-            f'"{git}" -C {dir} fetch',
-            f"Fetching updates for {name}...",
-            f"Couldn't fetch {name}",
-        )
-        run(
-            f'"{git}" -C {dir} checkout {commithash}',
-            f"Checking out commint for {name} with hash: {commithash}...",
-            f"Couldn't checkout commit {commithash} for {name}",
-        )
-        return
-
-    run(
-        f'"{git}" clone "{url}" "{dir}"',
-        f"Cloning {name} into {dir}...",
-        f"Couldn't clone {name}",
-    )
-
-    if commithash is not None:
-        run(
-            f'"{git}" -C {dir} checkout {commithash}',
-            None,
-            "Couldn't checkout {name}'s hash: {commithash}",
-        )
-
-
 try:
     commit = run(f"{git} rev-parse HEAD").strip()
 except Exception:
@@ -153,9 +112,6 @@ else:
     print("Check torch and torchvision")
 
 
-run_pip(f"install -r {requirements_file}", "requirements for Web UI")
-
-
 # Only for pre-release
 dir_repos = "repositories"
 os.makedirs(dir_repos, exist_ok=True)
@@ -166,12 +122,58 @@ def repo_dir(name):
 
 
 custom_gradio_commit_hash = os.environ.get(
-    "CUSTOM_GRADIO_COMMIT_HASH", "5ede976cea66be676798df26fa126ada5c40844c"
+    "CUSTOM_GRADIO_COMMIT_HASH", "8ac54ca7902a04ede2cb93a11ff42c6cb011b296"
 )
 
 custom_gradio_templates_commit_hash = os.environ.get(
-    "CUSTOM_GRADIO_TEMPLATES_COMMIT_HASH", "b8114f1c7e74ce5a024d1e92f40574e7a6cce0c8"
+    "CUSTOM_GRADIO_TEMPLATES_COMMIT_HASH", "68df69b400ec2871bda9ce6a8dc93c3c30cfa0b5"
 )
+
+
+def git_clone(url, dir, name, commithash=None, branch=None):
+    if os.path.exists(dir):
+        if commithash is None:
+            return
+
+        current_hash = run(
+            f"{git} -C {dir} rev-parse HEAD",
+            None,
+            f"Couldn't determine {name}'s hash: {commithash}",
+        ).strip()
+        if current_hash == commithash:
+            return
+
+        run(
+            f"{git} -C {dir} fetch",
+            f"Fetching updates for {name}...",
+            f"Couldn't fetch {name}",
+        )
+        run(
+            f"{git} -C {dir} checkout {commithash}",
+            f"Checking out commint for {name} with hash: {commithash}...",
+            f"Couldn't checkout commit {commithash} for {name}",
+        )
+        return
+
+    if branch is not None:
+        run(
+            f'{git} clone -b {branch} --single-branch "{url}" "{dir}"',
+            f"Cloning {name} into {dir}...",
+            f"Couldn't clone {name}",
+        )
+    else:
+        run(
+            f'{git} clone "{url}" "{dir}"',
+            f"Cloning {name} into {dir}...",
+            f"Couldn't clone {name}",
+        )
+
+    if commithash is not None:
+        run(
+            f"{git} -C {dir} checkout {commithash}",
+            None,
+            "Couldn't checkout {name}'s hash: {commithash}",
+        )
 
 
 if not is_installed("gradio"):
@@ -196,8 +198,14 @@ if not is_installed("gradio"):
         "Building gardio front",
         "Couldn't build gardio front",
     )
+
+
 else:
     print("Check gradio")
+
+
+run_pip(f"install -r {requirements_file}", "requirements for Web UI")
+
 
 sys.argv += args
 
