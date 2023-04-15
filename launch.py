@@ -176,7 +176,7 @@ custom_gradio_templates_commit_hash = os.environ.get(
 )
 
 
-if not is_installed("gradio"):
+if not is_installed("gradio", "3.26.0"):
     git_clone(
         "https://github.com/tomchang25/gradio.git",
         repo_dir("gradio"),
