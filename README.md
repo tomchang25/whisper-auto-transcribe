@@ -38,50 +38,48 @@ The tool is based on [OpenAI-whisper](https://github.com/openai/whisper), the la
 
 For more details, you can check [this](https://cdn.openai.com/papers/whisper.pdf).
 
-Features:
+### Features:
 
-- Automatically generates subtitles from video or audio
-- Automatically translates to English
-- Support for 99 languages
-- High accuracy and easy to use
-- Support GPU acceleration and CLI mode
-- Includes one-click installer
-- Support for Youtube
-- Support all features in latest gradio
-- Vocal extractor
-  - Much better performance
-- Voice activity detection
-  - Should fix the issue of subtitle repetition
+- Automatically generates subtitles for video or audio content
+- Translates content to English
+- Supports 99 languages
+- Offers high accuracy and ease of use
+- Provides support for GPU acceleration and CLI mode
 
-v3.1 (WIP):
-- Support official batch processing function
-- Support Deepl translation
+### Unique feature:
 
-v4 (WIP):
-- Subtitle edit
+- Includes a one-click installer
+- Supports Youtube integration
+- Preview subtitles in video
+- Provides support for Background Music Mute, works fine even during rock live performances
+- Supports long files, 3-hour files have been tested
+- Resolves the issue of subtitle repetition
 
-<!--
-I made some changes to output the subtitle files, and added a graphical interface.
+### Future feature:
 
-If you don't want to read an academic paper, this tool can be summed up in one sentence: 
+- Subtitle editing
+- Easy batch processing function
+- Improved translation
 
-   ```sh
-   AI will auto generate subtitle, with more accuracy than most transcribe commercial software.
-   The most important, it's FREE!
-   ```
--->
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
-## Installation (New)
+## Installation
 
 1. Install [Python 3](https://www.python.org/downloads/) and [Git](https://git-scm.com/downloads)
+
 2. Clone the repo
    ```sh
+   # Stable version
    git clone https://github.com/tomchang25/whisper-auto-transcribe.git
    cd whisper-auto-transcribe
+   
+   # If you want to test the unique feature in v3.0
+   git clone --branch v3-alpha https://github.com/tomchang25/whisper-auto-transcribe.git whisper-auto-transcribe-v3
+   cd whisper-auto-transcribe-v3
    ```
+
 
 3. Open webui.bat
 
@@ -90,6 +88,9 @@ If you don't want to read an academic paper, this tool can be summed up in one s
    Launching Web UI with arguments: 
    Running on local URL:  http://127.0.0.1:7860
    ```
+
+5. Open your browser and go to `http://127.0.0.1:7860`
+
    
 <!-- GPU acceleration -->
 ## (Optional) GPU acceleration (CUDA.11.3)
