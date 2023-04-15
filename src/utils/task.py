@@ -33,7 +33,6 @@ def transcribe(
 
         Path(subtitle_path).parent.mkdir(parents=True, exist_ok=True)
 
-        print(str(Path(subtitle_path).parent))
         if str(Path(subtitle_path).parent) == ".":
             subtitle_path = f"tmp/{subtitle_path}"
 

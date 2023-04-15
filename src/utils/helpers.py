@@ -116,8 +116,8 @@ def ffmpeg_extract_audio(inputfile, outputfile):
 
 def clean_filepath(filepath):
     # Use str.maketrans() and str.translate() to remove disallowed characters
-    disallowed = "@#$%^&*()_-+={}[]|\:;'<>,.?/~"
-    translation_table = str.maketrans("", "", disallowed)
+    disallowed = ":*?<>|"
+    translation_table = str.maketrans(" ", "-", disallowed)
     clean_filepath = filepath.translate(translation_table)
 
     return clean_filepath
