@@ -33,11 +33,6 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
-The tool is based on [OpenAI-whisper](https://github.com/openai/whisper), the latest project developed by OpenAI. 
-
-For more details, you can check [this](https://cdn.openai.com/papers/whisper.pdf).
-
 ### Features:
 
 - Automatically generates subtitles for video or audio content
@@ -60,6 +55,11 @@ For more details, you can check [this](https://cdn.openai.com/papers/whisper.pdf
 - Subtitle editing
 - Easy batch processing function
 - Improved translation
+
+
+The tool is based on [OpenAI-whisper](https://github.com/openai/whisper), the latest project developed by OpenAI. 
+
+For more details, you can check [this](https://cdn.openai.com/papers/whisper.pdf).
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
