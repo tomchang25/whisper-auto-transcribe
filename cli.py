@@ -66,10 +66,11 @@ def cli():
         # Batch mode - process all videos in the input directory
         output_dir = Path(args.output)
         for media_file in input_path.glob("*"):
+            media_file_type = mimetypes.guess_type(media_file)[0]
             if (
-                mimetypes.guess_type(media_file)[0]
-                and "audio" in mimetypes.guess_type(media_file)[0]
-                or "video" in mimetypes.guess_type(media_file)[0]
+                media_file_type
+                and "audio" in media_file_type
+                or "video" in media_file_type
             ):
                 subtitle_path = output_dir / (media_file.stem + ".srt")
                 transcribe(
@@ -83,25 +84,23 @@ def cli():
             else:
                 print(f"Skip. Can't transcribe file: {media_file}")
     else:
-        # Single file mode - process the input video file
-        subtitle_path = transcribe(
-            args.input,
-            subtitle=args.output,
-            language=args.language,
-            model_type=args.model,
-            device=args.device,
-            task=args.task,
-        )
-
-    print(
-        ("[{task} file is found at [{subtitle_path}].\n").format(
-            task=args.task, subtitle_path=subtitle_path
-        )
-    )
+        media_file = args.input
+        media_file_type = mimetypes.guess_type(media_file)[0]
+        if media_file_type and "audio" in media_file_type or "video" in media_file_type:
+            subtitle_path = transcribe(
+                args.input,
+                subtitle=args.output,
+                language=args.language,
+                model_type=args.model,
+                device=args.device,
+                task=args.task,
+            )
+        else:
+            print(f"Skip. Can't transcribe file: {media_file}")
 
 
 # python cli.py mp4/1min.mp4 --output out/final.srt --model large
-# python cli.py mp4 --output tmp/mp4 --model large
+# python cli.py test_mp4 --output batch --model large
 
 if __name__ == "__main__":
     cli()

@@ -109,7 +109,7 @@ For more details, you can check [this](https://cdn.openai.com/papers/whisper.pdf
     python .\cli.py .\mp4\1min.mp4 --output .\tmp\123456.srt -lang ja --task translate --model large
 
     # A batch example
-    python .\cli.py .\mp4 --output .\batch\ -lang ja --task translate --model small
+    python .\cli.py .\mp4 --output .\batch\ --model small --model medium
     ```
 
 ### (Optional) GPU acceleration (CUDA.11.3)
