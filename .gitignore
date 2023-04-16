@@ -4,26 +4,24 @@ build/
 dist/
 dist_onefile/
 flagged/
+
 venv/
 
+test_mp4/
+batch/
 test/
 img/
 mp4/
 out/
 wav/
 tmp/
-
+project/
 repositories/
 
 __pycache__/
 pretrained_models/
-project/
 
-gui.spec
-Demo.mp4
+# *.srt
 
-*.srt
-
-main.py
-pb_test.py
 test.py
+**/.openai

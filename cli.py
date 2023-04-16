@@ -1,14 +1,25 @@
 import argparse
 from src.utils.task import transcribe
+from pathlib import Path
+import mimetypes
 
 
 def cli():
     parser = argparse.ArgumentParser(description="Whisper Auto Transcribe")
 
-    parser.add_argument("input", metavar="input", type=str, help="Input video file")
+    parser.add_argument(
+        "input",
+        metavar="input",
+        type=str,
+        help="Input video file(s) or directory containing video files. If a directory is specified, batch work will be performed on all files in the directory.",
+    )
 
     parser.add_argument(
-        "--output", metavar="output", type=str, help="Output file name.", required=True
+        "--output",
+        metavar="output",
+        type=str,
+        help="Output file name or directory. ",
+        required=True,
     )
 
     parser.add_argument(
@@ -49,23 +60,47 @@ def cli():
     )
 
     args = parser.parse_args()
-    subtitle_path = transcribe(
-        args.input,
-        subtitle=args.output,
-        language=args.language,
-        model_type=args.model,
-        device=args.device,
-        task=args.task,
-    )
+    input_path = Path(args.input)
 
-    print(
-        ("[{task} file is found at [{subtitle_path}].\n").format(
-            task=args.task, subtitle_path=subtitle_path
-        )
-    )
+    if input_path.is_dir():
+        # Batch mode - process all videos in the input directory
+        output_dir = Path(args.output)
+        for media_file in input_path.glob("*"):
+            media_file_type = mimetypes.guess_type(media_file)[0]
+            if (
+                media_file_type
+                and "audio" in media_file_type
+                or "video" in media_file_type
+            ):
+                subtitle_path = output_dir / (media_file.stem + ".srt")
+                transcribe(
+                    str(media_file),
+                    subtitle=str(subtitle_path),
+                    language=args.language,
+                    model_type=args.model,
+                    device=args.device,
+                    task=args.task,
+                )
+            else:
+                print(f"Skip. Can't transcribe file: {media_file}")
+    else:
+        media_file = args.input
+        media_file_type = mimetypes.guess_type(media_file)[0]
+        if media_file_type and "audio" in media_file_type or "video" in media_file_type:
+            subtitle_path = transcribe(
+                args.input,
+                subtitle=args.output,
+                language=args.language,
+                model_type=args.model,
+                device=args.device,
+                task=args.task,
+            )
+        else:
+            print(f"Skip. Can't transcribe file: {media_file}")
 
 
 # python cli.py mp4/1min.mp4 --output out/final.srt --model large
+# python cli.py test_mp4 --output batch --model large
 
 if __name__ == "__main__":
     cli()

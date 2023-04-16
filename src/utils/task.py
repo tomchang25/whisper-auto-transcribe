@@ -3,10 +3,12 @@ import subprocess
 from pathlib import Path
 
 import torch
-import whisper_timestamped as whisper
+import whisper_timestamped
 
 from src.utils.constants import DEVICE_TYPES, LANGUAGE_CODES, MODEL_TYPES, TASK_TYPES
-from src.utils.helpers import write_srt
+from src.utils.helpers import write_srt, clean_filepath
+import tempfile
+import shutil
 
 
 def transcribe(
@@ -26,10 +28,13 @@ def transcribe(
     if subtitle is None:
         subtitle_path = "tmp/{}".format(Path(media).with_suffix(".srt").name)
     else:
-        subtitle_path = Path(subtitle).with_suffix(".srt")
+        clean_subtitle = clean_filepath(subtitle)
+
+        subtitle_path = Path(clean_subtitle).with_suffix(".srt")
+
         Path(subtitle_path).parent.mkdir(parents=True, exist_ok=True)
 
-        if str(Path(subtitle).parent) == ".":
+        if str(Path(subtitle_path).parent) == ".":
             subtitle_path = f"tmp/{subtitle_path}"
 
     if language == "auto":
@@ -46,9 +51,10 @@ def transcribe(
         )
 
     valid_devices = DEVICE_TYPES
-    if device == "gpu":
+    if device == "cuda":
         if not torch.cuda.is_available():
-            raise Exception(f"Error. GPU acceleration unavailable")
+            device = "cpu"
+            print(f"Warning. GPU acceleration unavailable. Switch to CPU mode.")
     elif device not in valid_devices:
         raise ValueError(
             f"Invalid value for parameter `device`: {device}. Please choose from one of: {valid_devices}"
@@ -64,16 +70,36 @@ def transcribe(
         model_type += ".en"
 
     # Data preprocess
-    vocal_extracter
-    vad
+    if vocal_extracter:
+        with tempfile.NamedTemporaryFile(delete=False) as tmp_file:
+            tmp_media_path = tmp_file.name
+            shutil.copy(media, tmp_media_path)
+            demucs_directory = Path(tmp_media_path).with_suffix("").name
+
+        # "demucs --two-stems=vocals mp4/1min.mp4 -o tmp/ --filename {track}/{stem}.{ext}"" # FileName/VOCAL.wav
+        cmd = rf'demucs --two-stems=vocals "{tmp_media_path}" -o "./tmp/{demucs_directory}/" --filename "{{stem}}.{{ext}}"'
+
+        try:
+            subprocess.run(cmd, check=True)
+        except Exception as e:
+            raise Exception(
+                f"Error. Vocal extracter unavailable. Received: {cmd} \nError Code: {e}"
+            )
+
+        media = f"./tmp/{demucs_directory}/htdemucs/vocals.wav"
 
     # Whisper transcribe
     print("Debug: ", media, subtitle_path, model_type, language, task, device)
 
-    whisper_model = whisper.load_model(model_type, device=device)
+    whisper_model = whisper_timestamped.load_model(model_type, device=device)
 
-    result = whisper_model.transcribe(
-        media, language=language, task=task, verbose=False
+    result = whisper_timestamped.transcribe(
+        model=whisper_model,
+        audio=media,
+        language=language,
+        task=task,
+        vad=vad,
+        verbose=False,
     )
 
     write_srt(result["segments"], subtitle_path)
@@ -84,9 +110,3 @@ def transcribe(
     torch.cuda.empty_cache()
 
     return subtitle_path
-
-
-# # %%
-# from pathlib import Path
-#
-# Path("tmp\\A\\B\\C\\DDD.srt").parent.mkdir(parents=True, exist_ok=True)

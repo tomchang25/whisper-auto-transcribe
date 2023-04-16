@@ -5,11 +5,12 @@ if not defined VENV_DIR (set VENV_DIR=venv)
 
 set ERROR_REPORTING=FALSE
 SET PATH=%PATH%;%CD%\ffmpeg
+SET SCRIPT_DIR=%~dp0
+set LAUNCH_SCRIPT=%SCRIPT_DIR%launch.py
 
+mkdir "%SCRIPT_DIR%tmp" 2>NUL
 
-mkdir tmp 2>NUL
-
-%PYTHON% -c "" >tmp/stdout.txt 2>tmp/stderr.txt
+%PYTHON% -c "" >"%SCRIPT_DIR%tmp\stdout.txt" 2>"%SCRIPT_DIR%tmp\stderr.txt"
 if %ERRORLEVEL% == 0 goto :start_venv
 echo Couldn't launch python
 goto :show_stdout_stderr
@@ -35,7 +36,7 @@ goto :launch
 :skip_venv
 
 :launch
-%PYTHON% launch.py
+%PYTHON% "%LAUNCH_SCRIPT%"
 pause
 exit /b
 
