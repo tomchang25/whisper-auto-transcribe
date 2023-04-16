@@ -26,7 +26,6 @@ def transcribe(
     if subtitle is None:
         subtitle_path = "tmp/{}".format(Path(media).with_suffix(".srt").name)
     else:
-        # Use str.maketrans() and str.translate() to remove disallowed characters
         clean_subtitle = clean_filepath(subtitle)
 
         subtitle_path = Path(clean_subtitle).with_suffix(".srt")
@@ -50,9 +49,10 @@ def transcribe(
         )
 
     valid_devices = DEVICE_TYPES
-    if device == "gpu":
+    if device == "cuda":
         if not torch.cuda.is_available():
-            raise Exception(f"Error. GPU acceleration unavailable")
+            device = "cpu"
+            print(f"Error. GPU acceleration unavailable. Switch to CPU mode.")
     elif device not in valid_devices:
         raise ValueError(
             f"Invalid value for parameter `device`: {device}. Please choose from one of: {valid_devices}"
