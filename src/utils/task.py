@@ -71,11 +71,10 @@ def transcribe(
 
     # Data preprocess
     if vocal_extracter:
-        demucs_directory = Path(subtitle_path).with_suffix("").name
-
         with tempfile.NamedTemporaryFile(delete=False) as tmp_file:
             tmp_media_path = tmp_file.name
             shutil.copy(media, tmp_media_path)
+            demucs_directory = Path(tmp_media_path).with_suffix("").name
 
         # "demucs --two-stems=vocals mp4/1min.mp4 -o tmp/ --filename {track}/{stem}.{ext}"" # FileName/VOCAL.wav
         cmd = rf'demucs --two-stems=vocals "{tmp_media_path}" -o "./tmp/{demucs_directory}/" --filename "{{stem}}.{{ext}}"'
