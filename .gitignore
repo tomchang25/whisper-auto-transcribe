@@ -21,6 +21,5 @@ pretrained_models/
 
 # *.srt
 
-main.py
-pb_test.py
 test.py
+**/.openai

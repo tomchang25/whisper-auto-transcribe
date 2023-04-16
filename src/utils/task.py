@@ -72,7 +72,7 @@ def transcribe(
         demucs_directory = Path(subtitle_path).with_suffix("").name
 
         # "demucs --two-stems=vocals mp4/1min.mp4 -o tmp/ --filename {track}/{stem}.{ext}"" # FileName/VOCAL.wav
-        cmd = rf'demucs --two-stems=vocals "{media}" -o "./tmp/{demucs_directory}/" --filename {{stem}}.{{ext}}'
+        cmd = rf'demucs --two-stems=vocals "{media}" -o "./tmp/{demucs_directory}/" --filename "{{stem}}.{{ext}}"'
 
         try:
             subprocess.run(cmd, check=True)

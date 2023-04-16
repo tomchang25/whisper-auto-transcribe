@@ -2,14 +2,12 @@
 
 ## New Features:
 
-- Vocal extractor
-  - Much better performance
-- Voice activity detection
-  - Should fix the issue of subtitle repetition
+- Allow media compression.
 
-## Bug Fixes:
+## Bug fixes:
 
-No changes to highlight.
+- Add 'Program Files' warning in `launch.py`.
+- Fixed disk errors.
 
 ## Documentation Changes:
 
