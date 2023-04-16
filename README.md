@@ -11,11 +11,10 @@
 <div align="center">
   <h3 align="center">Easily generate free subtitles for your video</h3>
 
-
   <a href="https://github.com/tomchang25/whisper-auto-transcribe">
     <img src="images/logo.png" alt="Logo" width="400" height="400">
   </a>
- 
+
   <p align="center">
     <br />
     <a href="https://github.com/tomchang25/whisper-auto-transcribe#Demo">View Demo</a>
@@ -24,7 +23,6 @@
     ·
     <a href="https://github.com/tomchang25/whisper-auto-transcribe/issues">Request Feature</a>
   </p>
-
 
 </div>
 
@@ -64,13 +62,19 @@ For more details, you can check [this](https://cdn.openai.com/papers/whisper.pdf
 
 <!-- GETTING STARTED -->
 
-## Installation
+## How to use
+
+### Installation
 
 1. Install [Python 3](https://www.python.org/downloads/) and [Git](https://git-scm.com/downloads)
 
 2. Clone the repo
 
    ```sh
+   # Chage currently dir to Document
+   # You can specify the target directory to any location except "Program Files" and "Program Files (x86)"
+   cd ~
+
    # Stable version
    git clone https://github.com/tomchang25/whisper-auto-transcribe.git
    cd whisper-auto-transcribe
@@ -91,9 +95,21 @@ For more details, you can check [this](https://cdn.openai.com/papers/whisper.pdf
 
 5. Open your browser and go to `http://127.0.0.1:7860`
 
-<!-- GPU acceleration -->
+### (Optional) Command-line interface
 
-## (Optional) GPU acceleration (CUDA.11.3)
+1.  Open `enable_venv.bat`.
+
+2.  Now, you can use the CLI mode.
+
+    ```sh
+    # Get help messages
+    python .\cli.py -h
+
+    # A simple example
+    python .\cli.py .\mp4\1min.mp4 --output .\tmp\123456.srt -lang ja --task translate --model small
+    ```
+
+### (Optional) GPU acceleration (CUDA.11.3)
 
 1. Install [CUDA](https://developer.nvidia.com/cuda-11.3.0-download-archive)
 2. Install [CUDNN](https://developer.nvidia.com/rdp/cudnn-archive)
@@ -105,23 +121,6 @@ For more details, you can check [this](https://cdn.openai.com/papers/whisper.pdf
    ```sh
    # on Windows
    python -m pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 torchaudio==0.12.1+cu113 -f https://download.pytorch.org/whl/torch_stable.html
-   ```
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-<!-- How to use -->
-
-## How to use
-
-  <img src="images/Demo1.png" alt="How to use" width="800" height="450">
-  
-## Command-line interface
-   ```sh
-   # Get help messages
-   python .\cli.py -h
-   
-   # A simple example
-   python .\cli.py .\mp4\1min.mp4 --output .\tmp\123456.srt -lang ja --task translate --model small
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>

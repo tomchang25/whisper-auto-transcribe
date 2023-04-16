@@ -27,6 +27,24 @@ def extract_arg(args, name):
 args, skip_torch_cuda_test = extract_arg(args, "--skip-torch-cuda-test")
 
 
+# Get the current process directory
+process_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Check if the process directory is in "Program Files" or "Program Files (x86)"
+if "Program Files" in process_dir or "Program Files (x86)" in process_dir:
+    confirm = (
+        input(
+            "WARNING: The current process directory is in 'Program Files' or 'Program Files (x86)'. "
+            "Continuing may cause issues. Do you want to continue? (Y/N) "
+        )
+        .strip()
+        .lower()
+    )
+    if confirm != "y":
+        print("Exiting the program.")
+        exit()
+
+
 def run(command, desc=None, errdesc=None, cwd=None):
     if desc is not None:
         print(desc)

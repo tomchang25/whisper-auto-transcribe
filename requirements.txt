@@ -26,7 +26,6 @@ transformers
 ffmpeg-python
 more-itertools
 tqdm
-decorator
 yt_dlp
 pysubs2
 # gradio==3.26.0

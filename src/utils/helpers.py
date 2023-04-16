@@ -1,15 +1,46 @@
-import inspect
-import os
-import subprocess as sp
 from typing import Iterator, TextIO
 
-import decorator
 
-import ffmpeg
+def convert_to_seconds(time):
+    """Will convert any time into seconds.
+    If the type of `time` is not valid,
+    it's returned as is.
+    Here are the accepted formats:
+    >>> convert_to_seconds(15.4)   # seconds
+    15.4
+    >>> convert_to_seconds((1, 21.5))   # (min,sec)
+    81.5
+    >>> convert_to_seconds((1, 1, 2))   # (hr, min, sec)
+    3662
+    >>> convert_to_seconds('01:01:33.045')
+    3693.045
+    >>> convert_to_seconds('01:01:33,5')    # coma works too
+    3693.5
+    >>> convert_to_seconds('1:33,5')    # only minutes and secs
+    99.5
+    >>> convert_to_seconds('33.5')      # only secs
+    33.5
+    """
+    factors = (1, 60, 3600)
+
+    if isinstance(time, str):
+        time = [float(part.replace(",", ".")) for part in time.split(":")]
+
+    if not isinstance(time, (tuple, list)):
+        return time
+
+    return sum(mult * part for mult, part in zip(factors, reversed(time)))
 
 
-# copy from whisper
-# -----------------
+def clean_filepath(filepath):
+    # Use str.maketrans() and str.translate() to remove disallowed characters
+    disallowed = "*?<>|"
+    translation_table = str.maketrans(" ", "-", disallowed)
+    clean_filepath = filepath.translate(translation_table)
+
+    return clean_filepath
+
+
 def format_timestamp(seconds: float, always_include_hours: bool = False):
     assert seconds >= 0, "non-negative timestamp expected"
     milliseconds = round(seconds * 1000.0)
@@ -48,76 +79,3 @@ def write_srt(transcript: Iterator[dict], file: TextIO):
             text = segment["text"].strip().replace("-->", "->")
 
             f.write(f"{id}\n{start} --> {end}\n{text}\n\n")
-
-
-def preprocess_args(fun, varnames):
-    """Applies fun to variables in varnames before launching the function."""
-
-    def wrapper(func, *args, **kwargs):
-        names = inspect.getfullargspec(func).args
-        new_args = [
-            fun(arg) if (name in varnames) and (arg is not None) else arg
-            for (arg, name) in zip(args, names)
-        ]
-        new_kwargs = {
-            kwarg: fun(value) if kwarg in varnames else value
-            for (kwarg, value) in kwargs.items()
-        }
-        return func(*new_args, **new_kwargs)
-
-    return decorator.decorator(wrapper)
-
-
-def convert_to_seconds(time):
-    """Will convert any time into seconds.
-    If the type of `time` is not valid,
-    it's returned as is.
-    Here are the accepted formats:
-    >>> convert_to_seconds(15.4)   # seconds
-    15.4
-    >>> convert_to_seconds((1, 21.5))   # (min,sec)
-    81.5
-    >>> convert_to_seconds((1, 1, 2))   # (hr, min, sec)
-    3662
-    >>> convert_to_seconds('01:01:33.045')
-    3693.045
-    >>> convert_to_seconds('01:01:33,5')    # coma works too
-    3693.5
-    >>> convert_to_seconds('1:33,5')    # only minutes and secs
-    99.5
-    >>> convert_to_seconds('33.5')      # only secs
-    33.5
-    """
-    factors = (1, 60, 3600)
-
-    if isinstance(time, str):
-        time = [float(part.replace(",", ".")) for part in time.split(":")]
-
-    if not isinstance(time, (tuple, list)):
-        return time
-
-    return sum(mult * part for mult, part in zip(factors, reversed(time)))
-
-
-def convert_parameter_to_seconds(varnames):
-    """Converts the specified variables to seconds."""
-    return preprocess_args(convert_to_seconds, varnames)
-
-
-def convert_path_to_string(varnames):
-    """Converts the specified variables to a path string."""
-    return preprocess_args(os.fspath, varnames)
-
-
-@convert_path_to_string(("inputfile", "outputfile"))
-def ffmpeg_extract_audio(inputfile, outputfile):
-    ffmpeg.input(inputfile).output(outputfile, format="wav").run()
-
-
-def clean_filepath(filepath):
-    # Use str.maketrans() and str.translate() to remove disallowed characters
-    disallowed = ":*?<>|"
-    translation_table = str.maketrans(" ", "-", disallowed)
-    clean_filepath = filepath.translate(translation_table)
-
-    return clean_filepath
