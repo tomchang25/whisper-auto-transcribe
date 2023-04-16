@@ -1,7 +1,6 @@
 # From moviepy 2.0
 import os
 import shutil
-from pathlib import Path
 
 from pydub import AudioSegment
 

@@ -19,7 +19,7 @@ def transcribe(
     vad=True,
     language="auto",
     model_type="tiny",
-    device="cpu",
+    device="cuda",
     task="transcribe",
 ):
     # Input preprocess
@@ -71,7 +71,9 @@ def transcribe(
 
     # Data preprocess
     if vocal_extracter:
-        with tempfile.NamedTemporaryFile(delete=False) as tmp_file:
+        with tempfile.NamedTemporaryFile(
+            suffix=Path(media).stem, delete=False
+        ) as tmp_file:
             tmp_media_path = tmp_file.name
             shutil.copy(media, tmp_media_path)
             demucs_directory = Path(tmp_media_path).with_suffix("").name
@@ -82,9 +84,10 @@ def transcribe(
         try:
             subprocess.run(cmd, check=True)
         except Exception as e:
-            raise Exception(
-                f"Error. Vocal extracter unavailable. Received: {cmd} \nError Code: {e}"
+            print(
+                f"Debug: demucs, {media}, {cmd}, {tmp_media_path}, {demucs_directory}"
             )
+            raise Exception(f"Error. Vocal extracter unavailable. Received: {e}")
 
         media = f"./tmp/{demucs_directory}/htdemucs/vocals.wav"
 
