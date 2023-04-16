@@ -72,7 +72,7 @@ For more details, you can check [this](https://cdn.openai.com/papers/whisper.pdf
 
    ```sh
    # Chage currently dir to Document
-   # You can specify the target directory to any location except "Program Files" and "Program Files (x86)"
+   # You can specify directory to any other location except "Program Files" and "Program Files (x86)"
    cd ~
 
    # Stable version

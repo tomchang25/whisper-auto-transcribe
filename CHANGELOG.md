@@ -2,13 +2,43 @@
 
 ## New Features:
 
-- Allow media compression.
+No changes to highlight.
+
+## Bug fixes:
+
+No changes to highlight.
+
+## Documentation Changes:
+
+No changes to highlight.
+
+## Testing and Infrastructure Changes:
+
+No changes to highlight.
+
+## Breaking Changes:
+
+No changes to highlight.
+
+## Full Changelog:
+
+No changes to highlight.
+
+## Contributors Shoutout:
+
+No changes to highlight.
+
+# Version 0.3.1
+
+## New Features:
+
+- Batch mode in CLI
 
 ## Bug fixes:
 
 - Add 'Program Files' warning in `launch.py`.
 - Fixed disk errors.
-- Fixed issue where demucs did not support UTF-8 filenames.
+- Fix filename format error in demucs.
 
 ## Documentation Changes:
 
