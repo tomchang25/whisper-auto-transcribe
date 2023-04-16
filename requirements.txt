@@ -32,4 +32,5 @@ pysubs2
 git+https://github.com/openai/whisper.git
 git+https://github.com/linto-ai/whisper-timestamped
 treetable==0.2.3
+PySoundFile
 demucs

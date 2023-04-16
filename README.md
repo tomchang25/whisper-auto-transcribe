@@ -47,11 +47,11 @@
 - Provides support for Background Music Mute, works fine even during heavy metal live performances
 - Supports long files, 3-hour files have been tested
 - Resolves the issue of subtitle repetition
+- Support for batch processing.
 
 ### Future feature:
 
 - Subtitle editing
-- Easy batch processing function
 - Improved translation
 
 The tool is based on [OpenAI-whisper](https://github.com/openai/whisper), the latest project developed by OpenAI.
@@ -106,7 +106,10 @@ For more details, you can check [this](https://cdn.openai.com/papers/whisper.pdf
     python .\cli.py -h
 
     # A simple example
-    python .\cli.py .\mp4\1min.mp4 --output .\tmp\123456.srt -lang ja --task translate --model small
+    python .\cli.py .\mp4\1min.mp4 --output .\tmp\123456.srt -lang ja --task translate --model large
+
+    # A batch example
+    python .\cli.py .\mp4 --output .\batch\ -lang ja --task translate --model small
     ```
 
 ### (Optional) GPU acceleration (CUDA.11.3)

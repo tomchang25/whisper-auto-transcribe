@@ -8,6 +8,7 @@
 
 - Add 'Program Files' warning in `launch.py`.
 - Fixed disk errors.
+- Fixed issue where demucs did not support UTF-8 filenames.
 
 ## Documentation Changes:
 

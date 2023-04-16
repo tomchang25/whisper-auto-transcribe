@@ -7,6 +7,8 @@ import whisper_timestamped
 
 from src.utils.constants import DEVICE_TYPES, LANGUAGE_CODES, MODEL_TYPES, TASK_TYPES
 from src.utils.helpers import write_srt, clean_filepath
+import tempfile
+import shutil
 
 
 def transcribe(
@@ -71,8 +73,12 @@ def transcribe(
     if vocal_extracter:
         demucs_directory = Path(subtitle_path).with_suffix("").name
 
+        with tempfile.NamedTemporaryFile(delete=False) as tmp_file:
+            tmp_media_path = tmp_file.name
+            shutil.copy(media, tmp_media_path)
+
         # "demucs --two-stems=vocals mp4/1min.mp4 -o tmp/ --filename {track}/{stem}.{ext}"" # FileName/VOCAL.wav
-        cmd = rf'demucs --two-stems=vocals "{media}" -o "./tmp/{demucs_directory}/" --filename "{{stem}}.{{ext}}"'
+        cmd = rf'demucs --two-stems=vocals "{tmp_media_path}" -o "./tmp/{demucs_directory}/" --filename "{{stem}}.{{ext}}"'
 
         try:
             subprocess.run(cmd, check=True)
