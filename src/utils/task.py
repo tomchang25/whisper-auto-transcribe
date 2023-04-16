@@ -52,7 +52,7 @@ def transcribe(
     if device == "cuda":
         if not torch.cuda.is_available():
             device = "cpu"
-            print(f"Error. GPU acceleration unavailable. Switch to CPU mode.")
+            print(f"Warning. GPU acceleration unavailable. Switch to CPU mode.")
     elif device not in valid_devices:
         raise ValueError(
             f"Invalid value for parameter `device`: {device}. Please choose from one of: {valid_devices}"
