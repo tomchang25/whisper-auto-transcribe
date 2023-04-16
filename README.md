@@ -78,11 +78,12 @@ For more details, you can check [this](https://cdn.openai.com/papers/whisper.pdf
    # Stable version
    git clone https://github.com/tomchang25/whisper-auto-transcribe.git
    cd whisper-auto-transcribe
-
-   # If you want to test the unique feature in v3.0
-   git clone --branch v3-alpha https://github.com/tomchang25/whisper-auto-transcribe.git whisper-auto-transcribe-v3
-   cd whisper-auto-transcribe-v3
    ```
+
+     <!-- # If you want to test the unique feature in v3.1
+     git clone --branch v3-alpha https://github.com/tomchang25/whisper-auto-transcribe.git whisper-auto-transcribe-v3
+     cd whisper-auto-transcribe-v3
+     ``` -->
 
 3. Open webui.bat
 
