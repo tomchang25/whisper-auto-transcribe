@@ -35,7 +35,7 @@ def convert_to_seconds(time):
 def clean_filepath(filepath):
     # Use str.maketrans() and str.translate() to remove disallowed characters
     disallowed = "*?<>|"
-    translation_table = str.maketrans(" ", "-", disallowed)
+    translation_table = str.maketrans("", "", disallowed)
     clean_filepath = filepath.translate(translation_table)
 
     return clean_filepath
