@@ -51,16 +51,45 @@ def cli():
     )
 
     parser.add_argument(
+        "--transcribe-model",
+        metavar="transcribe_model",
+        type=str,
+        help="Use model. [whisper, whisper_timestamps, stable_whisper] Default [stable_whisper].",
+        required=False,
+        default="stable_whisper",
+    )
+
+    parser.add_argument(
+        "--remain-tempfile",
+        action="store_true",
+        help="Keep temporary file after processing. Default is False.",
+        required=False,
+        default=False,
+    )
+
+    model_size_group = parser.add_mutually_exclusive_group()
+
+    model_size_group.add_argument(
+        "--model-size",
+        metavar="model_size",
+        type=str,
+        help="Use model size. [tiny, base, small, medium, large] Default [medium].",
+        required=False,
+        default="medium",
+    )
+
+    model_size_group.add_argument(
         "--model",
         metavar="model",
         type=str,
-        help="Use model. [tiny, base, small, medium, large] Default [medium].",
+        help="Use model size. [tiny, base, small, medium, large] Default [medium].",
         required=False,
         default="medium",
     )
 
     args = parser.parse_args()
     input_path = Path(args.input)
+    delete_tempfile = not args.remain_tempfile
 
     if input_path.is_dir():
         # Batch mode - process all videos in the input directory
@@ -77,9 +106,11 @@ def cli():
                     str(media_file),
                     subtitle=str(subtitle_path),
                     language=args.language,
-                    model_type=args.model,
+                    model_type=args.model_size,
+                    transcribe_model=args.transcribe_model,
                     device=args.device,
                     task=args.task,
+                    delete_tempfile=delete_tempfile,
                 )
             else:
                 print(f"Skip. Can't transcribe file: {media_file}")
@@ -91,16 +122,18 @@ def cli():
                 args.input,
                 subtitle=args.output,
                 language=args.language,
-                model_type=args.model,
+                model_type=args.model_size,
+                transcribe_model=args.transcribe_model,
                 device=args.device,
                 task=args.task,
+                delete_tempfile=delete_tempfile,
             )
         else:
             print(f"Skip. Can't transcribe file: {media_file}")
 
 
-# python cli.py mp4/1min.mp4 --output out/final.srt --model large
-# python cli.py test_mp4 --output batch --model large
+# python cli.py mp4/1min.mp4 --output out/final.srt --model-size large --remain-tempfile
+# python cli.py test_mp4 --output out/batch --model-size large
 
 if __name__ == "__main__":
     cli()

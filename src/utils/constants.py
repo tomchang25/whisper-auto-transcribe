@@ -106,3 +106,5 @@ MODEL_TYPES = ["tiny", "base", "small", "medium", "large"]
 TASK_TYPES = ["transcribe", "translate"]
 
 DEVICE_TYPES = ["cpu", "cuda"]
+
+TRANSCRIBE_MODEL_TYPES = ["whisper", "whisper_timestamps", "stable_whisper"]

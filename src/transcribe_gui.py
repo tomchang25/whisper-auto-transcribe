@@ -5,7 +5,13 @@ import torch
 from yt_dlp import YoutubeDL
 
 from src.utils import task
-from src.utils.constants import DEVICE_TYPES, LANGUAGE_CODES, MODEL_TYPES, TASK_TYPES
+from src.utils.constants import (
+    DEVICE_TYPES,
+    LANGUAGE_CODES,
+    MODEL_TYPES,
+    TASK_TYPES,
+    TRANSCRIBE_MODEL_TYPES,
+)
 import pysubs2
 
 
@@ -130,10 +136,30 @@ def create_setting_tab():
                     interactive=True,
                 )
 
+                delete_temp_checkbox = gr.Checkbox(
+                    value=True,
+                    label="Delete temp file",
+                    info="You can still delete them manually in the tmp directory",
+                    interactive=True,
+                )
+
     with gr.Box():
         gr.HTML(value="<p><b>Model Setting</b></p>")
         with gr.Column():
             with gr.Row():
+                transcribe_model_input = gr.Dropdown(
+                    value="Whisper Timestamps",
+                    choices=[
+                        "Whisper",
+                        "Whisper Timestamps",
+                        "Stabilizing Timestamps for Whisper",
+                    ],
+                    type="index",
+                    label="Transcribe model",
+                    info="For detailed information, please check the guide",
+                    interactive=True,
+                )
+
                 language_input = gr.Dropdown(
                     value="Auto",
                     choices=[x[1] for x in LANGUAGE_CODES],
@@ -182,10 +208,12 @@ def create_setting_tab():
     return [
         vocal_extracter_checkbox,
         vad_checkbox,
+        delete_temp_checkbox,
         language_input,
         precision_input,
         device_input,
         task_type,
+        transcribe_model_input,
         setting_submit_btn,
     ]
 
@@ -205,6 +233,9 @@ def create_result_tab():
                         srt_download = gr.File(label="srt download", interactive=False)
                         vtt_download = gr.File(label="vtt download", interactive=False)
                         ass_download = gr.File(label="ass download", interactive=False)
+                        json_file_path = gr.File(
+                            label="json download", interactive=False
+                        )
 
                     subtitle_dataframe = gr.Markdown()
 
@@ -219,14 +250,29 @@ def create_result_tab():
         ass_file_path = Path(srt_file_path).with_suffix(".ass")
         subtitle.save(ass_file_path)
 
+        json_file_path = Path(srt_file_path).with_suffix(".json")
+        subtitle.save(json_file_path)
+
         subtitle_text = "```" + subtitle.to_string("srt") + "```"
 
-        return [srt_file_path, vtt_file_path, ass_file_path, subtitle_text]
+        return [
+            srt_file_path,
+            vtt_file_path,
+            ass_file_path,
+            json_file_path,
+            subtitle_text,
+        ]
 
     subtitle_file_path.change(
         fn=handle_subtitle_change,
         inputs=[subtitle_file_path],
-        outputs=[srt_download, vtt_download, ass_download, subtitle_dataframe],
+        outputs=[
+            srt_download,
+            vtt_download,
+            ass_download,
+            json_file_path,
+            subtitle_dataframe,
+        ],
     )
 
     return video_demo, subtitle_file_path
@@ -241,10 +287,12 @@ def create_transcribe_tab():
                 (
                     vocal_extracter_checkbox,
                     vad_checkbox,
+                    delete_temp_checkbox,
                     language_input,
                     precision_input,
                     device_input,
                     task_type,
+                    transcribe_model_input,
                     setting_submit_btn,
                 ) = create_setting_tab()
             with gr.Tab("Result", id="result_tab"):
@@ -267,10 +315,12 @@ def create_transcribe_tab():
                 subtitle_filename,
                 vocal_extracter_checkbox,
                 vad_checkbox,
+                delete_temp_checkbox,
                 language_input,
                 precision_input,
                 device_input,
                 task_type,
+                transcribe_model_input,
             ):
                 # Perform subtitle transcription
                 subtitle_filename = subtitle_filename.strip()
@@ -283,6 +333,8 @@ def create_transcribe_tab():
                     model_type=MODEL_TYPES[precision_input],
                     device=DEVICE_TYPES[device_input],
                     task=TASK_TYPES[task_type],
+                    delete_tempfile=delete_temp_checkbox,
+                    transcribe_model=TRANSCRIBE_MODEL_TYPES[transcribe_model_input],
                 )
 
                 return [
@@ -297,10 +349,12 @@ def create_transcribe_tab():
                     subtitle_filename,
                     vocal_extracter_checkbox,
                     vad_checkbox,
+                    delete_temp_checkbox,
                     language_input,
                     precision_input,
                     device_input,
                     task_type,
+                    transcribe_model_input,
                 ],
                 outputs=[video_demo, subtitle_file_path],
             )
