@@ -97,7 +97,7 @@ def transcribe(
         shutil.copy(media, media_new_filepath)
 
         if delete_tempfile:
-            demucs_directory = tempfile.gettempdir()
+            demucs_directory = tempfile.gettempdir() / Path("tempfreesubtitle")
         else:
             demucs_directory = "tmp/" + datetime.now().strftime(r"%Y-%m-%d %H-%M-%S")
 

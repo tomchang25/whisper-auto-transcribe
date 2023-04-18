@@ -104,13 +104,13 @@ For more details, you can check [this](https://cdn.openai.com/papers/whisper.pdf
 
     ```sh
     # Get help messages
-    python .\cli.py -h
+    python cli.py -h
 
     # A simple example
-    python .\cli.py .\mp4\1min.mp4 --output .\tmp\123456.srt -lang ja --task translate --model large
+    python cli.py mp4/1min.mp4 --output out/final.srt --model-size large --remain-tempfile
 
     # A batch example
-    python .\cli.py .\mp4 --output .\batch\ --model small --model medium
+    python cli.py test_mp4 --output out/batch --model-size small
     ```
 
 ### (Optional) GPU acceleration (CUDA.11.3)
