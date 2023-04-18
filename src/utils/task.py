@@ -89,8 +89,11 @@ def transcribe(
     if vocal_extracter:
         # Rename the original file to the new file name
         media_extension = Path(media).suffix
-        media_new_filepath = Path(media).with_name("main").with_suffix(media_extension)
+        media_new_filepath = tempfile.gettempdir() / Path(
+            "tempfreesubtitle/main"
+        ).with_suffix(media_extension)
 
+        Path(media_new_filepath).parent.mkdir(parents=True, exist_ok=True)
         shutil.copy(media, media_new_filepath)
 
         if delete_tempfile:
