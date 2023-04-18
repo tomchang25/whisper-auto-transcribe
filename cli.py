@@ -67,6 +67,22 @@ def cli():
         default=False,
     )
 
+    parser.add_argument(
+        "--no-vad",
+        action="no_vad",
+        help="Not use VAD. Default is False.",
+        required=False,
+        default=False,
+    )
+
+    parser.add_argument(
+        "--no-ve",
+        action="no_ve",
+        help="Not use vocal extracter. Default is False.",
+        required=False,
+        default=False,
+    )
+
     model_size_group = parser.add_mutually_exclusive_group()
 
     model_size_group.add_argument(
@@ -111,6 +127,8 @@ def cli():
                     device=args.device,
                     task=args.task,
                     delete_tempfile=delete_tempfile,
+                    vad=not args.no_vad,
+                    vocal_extracter=not args.no_ve,
                 )
             else:
                 print(f"Skip. Can't transcribe file: {media_file}")
@@ -127,6 +145,8 @@ def cli():
                 device=args.device,
                 task=args.task,
                 delete_tempfile=delete_tempfile,
+                vad=not args.no_vad,
+                vocal_extracter=not args.no_ve,
             )
         else:
             print(f"Skip. Can't transcribe file: {media_file}")
