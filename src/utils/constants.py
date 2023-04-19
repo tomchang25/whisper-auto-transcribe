@@ -113,5 +113,5 @@ DEVICE_TYPES = ["cpu", "cuda"]
 
 TRANSCRIBE_MODEL_TYPES = ["whisper", "whisper_timestamps", "stable_whisper"]
 
-TEMPDIR = tempfile.gettempdir() / Path("tempfreesubtitle")
+TEMPDIR = tempfile.gettempdir() / Path("temp-open-subtitle-master")
 Path(TEMPDIR).mkdir(parents=True, exist_ok=True)
