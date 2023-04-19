@@ -70,6 +70,7 @@ def write_srt(transcript: Iterator[dict], file: TextIO):
         with open(Path(output_dir) / (audio_basename + ".srt"), "w", encoding="utf-8") as srt:
             write_srt(result["segments"], file=srt)
     """
+    # TODO: Allow file as Path
     with open(file, "w", encoding="UTF-8") as f:
         for segment in transcript:
             # write srt lines

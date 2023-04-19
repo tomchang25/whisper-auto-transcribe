@@ -1,3 +1,6 @@
+import tempfile
+from pathlib import Path
+
 LANGUAGE_CODES = [
     ("auto", "Auto"),
     ("en", "English"),
@@ -101,10 +104,14 @@ LANGUAGE_CODES = [
     ("su", "Sundanese"),
 ]
 
-MODEL_TYPES = ["tiny", "base", "small", "medium", "large"]
+MODEL_SIZES = ["tiny", "base", "small", "medium", "large"]
+MODEL_TYPES = MODEL_SIZES
 
 TASK_TYPES = ["transcribe", "translate"]
 
 DEVICE_TYPES = ["cpu", "cuda"]
 
 TRANSCRIBE_MODEL_TYPES = ["whisper", "whisper_timestamps", "stable_whisper"]
+
+TEMPDIR = tempfile.gettempdir() / Path("tempfreesubtitle")
+Path(TEMPDIR).mkdir(parents=True, exist_ok=True)

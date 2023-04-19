@@ -1,5 +1,5 @@
 import argparse
-from src.utils.task import transcribe
+from src.utils.task import start_task
 from pathlib import Path
 import mimetypes
 
@@ -60,14 +60,6 @@ def cli():
     )
 
     parser.add_argument(
-        "--remain-tempfile",
-        action="store_true",
-        help="Keep temporary file after processing. Default is False.",
-        required=False,
-        default=False,
-    )
-
-    parser.add_argument(
         "--no-vad",
         action="no_vad",
         help="Not use VAD. Default is False.",
@@ -105,7 +97,6 @@ def cli():
 
     args = parser.parse_args()
     input_path = Path(args.input)
-    delete_tempfile = not args.remain_tempfile
 
     if input_path.is_dir():
         # Batch mode - process all videos in the input directory
@@ -118,17 +109,16 @@ def cli():
                 or "video" in media_file_type
             ):
                 subtitle_path = output_dir / (media_file.stem + ".srt")
-                transcribe(
+                start_task(
                     str(media_file),
                     subtitle=str(subtitle_path),
                     language=args.language,
-                    model_type=args.model_size,
                     transcribe_model=args.transcribe_model,
                     device=args.device,
-                    task=args.task,
-                    delete_tempfile=delete_tempfile,
+                    task_type=args.task,
+                    model_size=args.model_size,
                     vad=not args.no_vad,
-                    vocal_extracter=not args.no_ve,
+                    ve=not args.no_ve,
                 )
             else:
                 print(f"Skip. Can't transcribe file: {media_file}")
@@ -136,17 +126,16 @@ def cli():
         media_file = args.input
         media_file_type = mimetypes.guess_type(media_file)[0]
         if media_file_type and "audio" in media_file_type or "video" in media_file_type:
-            subtitle_path = transcribe(
+            subtitle_path = start_task(
                 args.input,
                 subtitle=args.output,
                 language=args.language,
-                model_type=args.model_size,
                 transcribe_model=args.transcribe_model,
                 device=args.device,
-                task=args.task,
-                delete_tempfile=delete_tempfile,
+                task_type=args.task,
+                model_size=args.model_size,
                 vad=not args.no_vad,
-                vocal_extracter=not args.no_ve,
+                ve=not args.no_ve,
             )
         else:
             print(f"Skip. Can't transcribe file: {media_file}")
