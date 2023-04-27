@@ -35,3 +35,4 @@ demucs
 git+https://github.com/openai/whisper.git
 git+https://github.com/linto-ai/whisper-timestamped
 stable-ts
+onnxruntime

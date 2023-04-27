@@ -200,6 +200,7 @@ if not is_installed("gradio"):
         repo_dir("gradio"),
         "Custom Gradio",
         custom_gradio_commit_hash,
+        branch="gradio-for-whisper-auto-transcribe",
     )
 
     run_pip(f"install {dir_repos}/gradio", "gradio")
