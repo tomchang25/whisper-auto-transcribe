@@ -101,10 +101,17 @@ LANGUAGE_CODES = [
     ("su", "Sundanese"),
 ]
 
-MODEL_TYPES = ["tiny", "base", "small", "medium", "large"]
+MODEL_SIZES = [
+    "tiny",
+    "base",
+    "small",
+    "medium",
+    "large-v1",
+    "large-v2",
+    "large-v3",
+    "distil-large-v3",
+]
 
 TASK_TYPES = ["transcribe", "translate"]
 
 DEVICE_TYPES = ["cpu", "cuda"]
-
-TRANSCRIBE_MODEL_TYPES = ["whisper", "whisper_timestamps", "stable_whisper"]
